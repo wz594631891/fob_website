@@ -279,7 +279,7 @@ $(function(){
 
 </script>
 </head>
-<body>
+<body style="background-color: rgb(245, 239, 239)">
 
 <!-- <div class='container-fluid'><img src='https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg'></div> -->
 <!-- 搜索  -->
@@ -315,8 +315,8 @@ $(function(){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Product</a></li>
+        <li ><a href="#">Home</a></li>
+        <li class="active"><a href="#">Product</a></li>
         <li><a href="#">About us</a></li>
         
       </ul>
@@ -338,9 +338,10 @@ $(function(){
   {% for item in list %}
   
  
-      <div class=" col-md-2" id="{{ forloop.counter }}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="200px">{{item.title}} <br><span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span>  </div>
+      <div class=" col-md-2" style="margin: 10px;background-color: white;" id="{{ forloop.counter }}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="150px"><span>{{item.title}}</span> <br><span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
+       </div>
     <!-- 求余数 -->
-        {% if forloop.counter|divisibleby:6 == 1 %}
+        {% if forloop.counter|divisibleby:5 == 1 %}
         </div><div class="row">
     {% endif %}
   {% endfor %}
