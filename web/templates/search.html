@@ -335,7 +335,7 @@ $(function(){
 <div class="container-fluid" style="background-color: rgb(245, 239, 239)">
   <div class="row">
 <!-- 侧方导航栏 -->
-<ul class="nav bs-docs-sidenav col-md-2"  style="background-color: white;margin-top: 10px;">
+<ul class="nav bs-docs-sidenav col-md-2"  style="border-radius:5px; background-color: white;margin-top: 10px;">
               
     <li class="">
   <a href="#download">All</a>
@@ -376,8 +376,8 @@ $(function(){
   <div class="row">
   {% for item in list %}
   
-  <!-- box-shadow:2px 2px 5px #000;阴影 -->
-      <div class=" col-md-2" style="box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;" id="{{ forloop.counter }}"><a href="/product/?q={{item.model}}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
+  <!-- box-shadow:2px 2px 5px #000;阴影 border-radius:5px;圆角 -->
+      <div class=" col-md-2" style="border-radius:5px;;box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;" id="{{ forloop.counter }}"><a href="/product/?q={{item.model}}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
       </a>
       </div>
     <!-- 求余数 -->
