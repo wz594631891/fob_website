@@ -5,25 +5,68 @@ from django.shortcuts import render,HttpResponse,redirect
 from . import models
 from exsql import execute
 from .models import Student,Username,Aliexpress_goods
-#搜索产品(官网)
+from django.core.paginator import Paginator   #这个是处理分页的
+#福步产品页
+def product(request):
+	if request.method=="GET":
+		#当有搜索参数时
+		if request.GET.get('model') :
+			#搜索参数 从title中搜索
+			model=request.GET.get('model')
+			print('查询型号:',model)
+			
+			product = models.Aliexpress_goods.objects.filter(model__endswith=model)[0:1]
+			product1 = models.Aliexpress_goods.objects.filter(model__endswith=model).first()
+			print('类型',type(product1))
+			print(product)
+		
+
+			#返回结果
+			return render(request,"product.html",{'list':product,"title":"搜索产品(官网)"})
+#福步搜索产品(官网)
 def search(request):
 	if request.method=="GET":
 		if not request.GET.get('search_string'):
+			page = request.GET.get('page', 1)  # 获取第几页,默认1
+			limit = request.GET.get('limit', 20)  # 每页有20条数据
+			print('页码',page,'每页条数',limit)
+			
 			print('类型')
 			print(type(models.Aliexpress_goods))
 			search = models.Aliexpress_goods.objects.all()
+			paginator = Paginator(search, limit)
+			page_obj  = paginator.get_page(page)
+			print('总条数',page_obj.paginator.count)
+			import math
+			# 计算页数=总条数/每页条数
+			page_qty=math.ceil(int(page_obj.paginator.count)/int(limit))
+			print('总页数',page_qty)
+			page_list=range(1,page_qty)
 			# print(search)
-			return render(request,"search.html",{"list":search,"title":"搜索产品(官网)"})
+			# return render(request,"search.html",{"list":search,"title":"搜索产品(官网)"})
+			return render(request,"search.html",{'page_list':page_list,"list":page_obj ,"title":"搜索产品(官网)"})
 		# elif request.method=="POST":
 		#当有搜索参数时
 		if request.GET.get('search_string') :
 			#搜索参数 从title中搜索
 			search_string=request.GET.get('search_string')
 			print('查询:',search_string)
-		
+			
 			search = models.Aliexpress_goods.objects.filter(title__icontains=search_string)
+			#分页
+			page = request.GET.get('page', 1)  # 获取第几页,默认1
+			limit = request.GET.get('limit', 20)  # 每页有20条数据
+			paginator = Paginator(search, limit)
+			page_obj  = paginator.get_page(page)
+			#总条数
+			print('总条数',page_obj.paginator.count)
+			import math
+			# 计算页数=总条数/每页条数
+			page_qty=math.ceil(int(page_obj.paginator.count)/int(limit))
+			print('总页数',page_qty)
+			page_list=range(1,page_qty)
 			#返回结果
-			return render(request,"search.html",{"list":search,"title":"搜索产品(官网)"})
+			return render(request,"search.html",{'page_list':page_list,'search_string':search_string,"list":page_obj ,"title":"搜索产品(官网)"})
 def shipping_list(request):
 	# if request.method=="GET":
 	if not request.GET.get('oid'):

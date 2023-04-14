@@ -1,305 +1,216 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<!-- <style type="text/css">
-
-    div{
-    /*加载背景图*/
-     background-image:'https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg';
-</style> -->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-<style type="text/css">
-  /* 盒子模型 */
-.td{
-    /* background-color: lightgrey; */
-    /* width: 300px; */
-    /* border: 25px solid green; */
-    padding: 25px;
-    /* margin: 25px; */
-}
-/* 页脚 */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  background-color: #f5f5f5;
-}
-* {
-
-  margin: 0;
-
-  padding: 0;
-
-  list-style-type: none;
-
-}
-
-a, img {
-
-  border: 0;
-
-  text-decoration: none;
-
-}
-
-body {
-
-  font-family: "微软雅黑", "宋体", "黑体", Arial;
-
-}
-
-/* focus */
-
-.xmSlide {
-
-  background-color: #022c5e;
-
-}
-
-.xmSlide_01 {
-
-  height: 639px;
-
-  background: url(/static/images/focus01.jpg) no-repeat center center;
-
-}
-
-.xmSlide_02 {
-
-  height: 639px;
-
-  background: url(/static/images/focus02.jpg) no-repeat center center;
-
-}
-
-.xmSlide_03 {
-
-  height: 639px;
-
-  background: url(/static/images/focus03.jpg) no-repeat center center;
-
-}
-
-.xmSlide-pagination {
-
-  background-color: #fff;
-
-  padding-top: 10px;
-
-  text-align: center;
-
-  height: 20px;
-
-}
-
-.xmSlide-pagination li {
-
-  display: inline-block;
-
-  width: 12px;
-
-  height: 12px;
-
-  margin: 0 5px;
-
-}
-
-.xmSlide-pagination li a {
-
-  display: inline-block;
-
-  width: 12px;
-
-  height: 12px;
-
-  text-indent: -9999px;
-
-  background-color: #ccd1d9;
-
-  border-radius: 8px;
-
-  -moz-border-radius: 8px;
-
-  -webkit-border-radius: 8px;
-
-  overflow: hidden;
-
-}
-
-.xmSlide-pagination li a.active {
-
-  background-color: #656d78;
-
-}
-
-.xmSlide-control {
-
-  overflow: hidden;
-
-}
-
-.btn {
-
-  width: 950px;
-
-  position: absolute;
-
-  left: 50%;
-
-  margin-left: -475px;
-
-  top: 0;
-
-  z-index: 9999;
-
-}
-
-.btn span {
-
-  display: block;
-
-  text-align: right;
-
-  padding-right: 158px;
-
-}
-
-.btn p {
-
-  padding: 410px 78px 0 0;
-
-  text-align: right;
-
-}
-
-.btn p a {
-
-  width: 133px;
-
-  height: 36px;
-
-  display: inline-block;
-
-  margin-right: 10px;
-
-  line-height: 36px;
-
-  font-size: 14px;
-
-  color: #fff;
-
-  text-align: center;
-
-  -webkit-border-radius: 4px;
-
-  -moz-border-radius: 4px;
-
-  border-radius: 4px;
-
-}
-
-.btn p a.item1 {
-
-  background-color: #ff9000;
-
-  -webkit-box-shadow: 0 2px rgba(13,47,88,.19);
-
-  -moz-box-shadow: 0 2px rgba(13,47,88,.19);
-
-  box-shadow: 0 2px rgba(13,47,88,.19);
-
-}
-
-.btn p a.item2 {
-
-  background-color: #5e95e1;
-
-  -webkit-box-shadow: 0 2px rgba(13,47,88,.19);
-
-  -moz-box-shadow: 0 2px rgba(13,47,88,.19);
-
-  box-shadow: 0 2px rgba(13,47,88,.19);
-
-}
-
-</style>
-<script type="text/javascript" src="/static/js/jquery18.js"></script>
-
-<script type="text/javascript" src="/static/js/slides.js"></script>
-
-<script type="text/javascript">
-
-
-</script>
-</head>
-<body>
-
-<!-- <div class='container-fluid'><img src='https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg'></div> -->
-<!-- 搜索  -->
-<form method="get" action="/google_search_picture/">
-  {% csrf_token %}
-  <div class="container" align="center">
-  <table >
-    <tr>
-      <!-- 搜索按钮 -->
-      <td><input value="Search" type="submit" style="border:0;color:white;background-color:orange;width:100px;height:40px"></td>
-      <!-- 搜索框 -->
-      <td><input type="text" class="form-control" style="height:40px;width:400px" placeholder="title">
-      </td >
-  </tr>
-  <!-- 空行 分隔-->
-  <tr><td style="height:20px"></td></tr>
-  </table>
-</div>
-</form>
-<!-- 导航 -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="https://rtyperautoparts.aliexpress.com">Rtyper</a>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <!-- <style type="text/css">
+      div{
+      /*加载背景图*/
+       background-image:'https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg';
+  </style> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- vue导入 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style type="text/css">
+    /* 盒子模型 */
+  .td{
+      /* background-color: lightgrey; */
+      /* width: 300px; */
+      /* border: 25px solid green; */
+      padding: 25px;
+      /* margin: 25px; */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  a, img {
+    border: 0;
+    text-decoration: none;
+  }
+  body {
+    font-family: "微软雅黑", "宋体", "黑体", Arial;
+  }
+  /* focus */
+  .xmSlide {
+    background-color: #022c5e;
+  }
+  .xmSlide_01 {
+    height: 639px;
+    background: url(/static/images/focus01.jpg) no-repeat center center;
+  }
+  .xmSlide_02 {
+    height: 639px;
+    background: url(/static/images/focus02.jpg) no-repeat center center;
+  }
+  .xmSlide_03 {
+    height: 639px;
+    background: url(/static/images/focus03.jpg) no-repeat center center;
+  }
+  .xmSlide-pagination {
+    background-color: #fff;
+    padding-top: 10px;
+    text-align: center;
+    height: 20px;
+  }
+  .xmSlide-pagination li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+  }
+  .xmSlide-pagination li a {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    text-indent: -9999px;
+    background-color: #ccd1d9;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    overflow: hidden;
+  }
+  .xmSlide-pagination li a.active {
+    background-color: #656d78;
+  }
+  .xmSlide-control {
+    overflow: hidden;
+  }
+  .btn {
+    width: 950px;
+    position: absolute;
+    left: 50%;
+    margin-left: -475px;
+    top: 0;
+    z-index: 9999;
+  }
+  .btn span {
+    display: block;
+    text-align: right;
+    padding-right: 158px;
+  }
+  .btn p {
+    padding: 410px 78px 0 0;
+    text-align: right;
+  }
+  .btn p a {
+    width: 133px;
+    height: 36px;
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .btn p a.item1 {
+    background-color: #ff9000;
+    -webkit-box-shadow: 0 2px rgba(13,47,88,.19);
+    -moz-box-shadow: 0 2px rgba(13,47,88,.19);
+    box-shadow: 0 2px rgba(13,47,88,.19);
+  }
+  .btn p a.item2 {
+    background-color: #5e95e1;
+    -webkit-box-shadow: 0 2px rgba(13,47,88,.19);
+    -moz-box-shadow: 0 2px rgba(13,47,88,.19);
+    box-shadow: 0 2px rgba(13,47,88,.19);
+  }
+  </style>
+  <script type="text/javascript" src="/static/js/jquery18.js"></script>
+  <script type="text/javascript" src="/static/js/slides.js"></script>
+  <script type="text/javascript">
+  $(function(){
+    $("#xmSlide").xmSlide({
+      width: 950,
+      height: 639,
+      responsiveWidth:710,
+      pagination: {
+        effect: "fade"  //可换成"slide"
+      },
+      effect: {
+        fade: {
+          speed: 400
+        }
+      },
+      play: {
+        effect: "fade", //可换成"slide"
+        interval: 4000,
+        auto: true,
+        pauseOnHover: true,
+        restartDelay: 2500
+      }
+    });
+  });
+  </script>
+  </head>
+  <!-- <body style="background-color: rgb(245, 239, 239)"> -->
+  <body id="rt">
+  <!-- 导航 -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="https://rtyperautoparts.aliexpress.com">Rtyper</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="#">Home</a></li>
+          <!-- <li class="active"><a href="#">Product</a></li> -->
+          <li ><a href="#">Product</a></li>
+          <li><a href="#">About us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+          <li ><a href="#">Register</a></li>
+          <li style="margin-right: 10px;" ><a href="#">Sign in</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li class="active"><a href="#">Product</a></li>
-        <li><a href="#">About us</a></li>
-        
-      </ul>
-      <ul class="nav navbar-nav navbar-right" >
-        <li ><a href="#">Register</a></li>
-        <li style="margin-right: 10px;" ><a href="#">Sign in</a></li>
-      </ul>
-    </div>
+  </nav>
+  <!-- <div class='container-fluid'><img src='https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg'></div> -->
+  <!-- 搜索  -->
+  <form method="get" action="/search/">
+    {% csrf_token %}
+    <div class="container-fluid"   >
+    <table  >
+      <tr>
+        <!-- <img src="/static/img/fob_log.jpg" height="100px" width="100px" alt=""> 商标-->
+        <!-- 商标 -->
+        <td style="padding-right: 50px;padding-bottom: 10px;"><h1 style="text-align: left;color:red;font-size: 45px;">FOB AUTOPARTS</h1></td>
+        <!-- 搜索按钮 -->
+        <td><input value="Search" type="submit" style="border-radius:5px 0px 0px 5px;border:0;color:white;background-color:red;width:100px;height:40px"></div>
+        <!-- 搜索框 -->
+        <td><input type="text" id="search" value="{{search_string}}" class="form-control" style="border-radius:0px 5px 5px 0px;height:40px;width:500px;border-color: red;" placeholder="title" name="search_string">
+        </td >
+    </tr>
+    <!-- 空行 分隔-->
+    <tr><td style="height:20px"></td></tr>
+    </table>
   </div>
-</nav>
+  </form>
 
 
 <script src="http://www.jq22.com/js/jq.js"></script>
 <div class="container">
  <!--产品页: 产品图片 标题 型号 规格 购买 -->
-
+{% for item in list %}
 <table>
   <!-- 产品图片 -->
-  <tr>  <td rowspan="4" colspan="4"><img src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td></tr>
+  <tr>  <td rowspan="4" colspan="4"><img style="width: 450px;" src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td></tr>
   <!-- 标题 -->
   <tr><td><span id="title">{{item.title}}</span></td></tr>
   <!-- 型号 -->
@@ -308,15 +219,22 @@ body {
   <tr><td><button class="btn-primary" style="width: 300px;height:50px ;" ><a style="color:white;font-size: 20px;" href="#">Buy</a></button></td></tr>
   <!-- 缩略图*4 -->
   <tr>
-    <td><img src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td>
-    <td><img src="/static/img/{{item.model}}_2.jpg" alt="No picture"></td>
-    <td><img src="/static/img/{{item.model}}_3.jpg" alt="No picture"></td>
-    <td><img src="/static/img/{{item.model}}_4.jpg" alt="No picture"></td>
+    <td><img  style="width: 100px;"  src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td>
+    <td><img style="width: 100px;" src="/static/img/{{item.model}}_2.jpg" alt="No picture"></td>
+    <td><img style="width: 100px;" src="/static/img/{{item.model}}_3.jpg" alt="No picture"></td>
+    <td><img style="width: 100px;" src="/static/img/{{item.model}}_4.jpg" alt="No picture"></td>
   </tr>
 </table>
+
 </div>
+
 <!-- 详情: 标题 大图 -->
 <div class="container">
+  <!-- 标签页导航 -->
+<ul class="nav nav-tabs" style="margin: 0px;margin-bottom: 10px;">
+  <li role="presentation" style="width: 10%;" class="active"><a href="#">Detail</a></li>
+  <li role="presentation"><a href="#">Specification</a></li>
+</ul>
 <table>
   <!-- 标题 -->
   <tr><td><h1>{{item.title}}</h1></td></tr>
@@ -359,7 +277,7 @@ body {
 <div class="jumbotron text-center" style="margin-bottom:0;background-color: grey;height: 100px;">
   <p style="color:white">©️2010-2023 Fob Auto Parts co.,ltd. All rights reserved. </p>
 </div>
-
+{% endfor %}
 
 </body>
 </html>

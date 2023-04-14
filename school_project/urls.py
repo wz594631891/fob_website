@@ -28,7 +28,8 @@ urlpatterns = [
     path('wait_ship_aliexpress_order/',views.wait_ship_aliexpress_order),#速卖通订单
     path('delete/',views.delete),#删除速卖通订单
     path('shipping_list/',views.shipping_list),#删除速卖通订单
-    path('search/',views.search),#删除速卖通订单
+    path('search/',views.search),#福步搜索产品页
+    path('product/',views.product),#福步产品页
     # #加载本地图片X
     # url(r'^book/(?P<path>.*)$', serve, {'document_root':'D:/github_goods'})
 ]
