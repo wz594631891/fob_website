@@ -297,7 +297,8 @@ $(function(){
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li ><a href="#">Home</a></li>
-        <li class="active"><a href="#">Product</a></li>
+        <!-- <li class="active"><a href="#">Product</a></li> -->
+        <li ><a href="#">Product</a></li>
         <li><a href="#">About us</a></li>
         
       </ul>
@@ -320,9 +321,9 @@ $(function(){
       <td style="padding-right: 50px;padding-bottom: 10px;"><h1 style="text-align: left;color:red;font-size: 45px;">FOB AUTOPARTS</h1></td>
       
       <!-- 搜索按钮 -->
-      <td><input value="Search" type="submit" style="border:0;color:white;background-color:red;width:100px;height:40px"></div>
+      <td><input value="Search" type="submit" style="border-radius:5px 0px 0px 5px;border:0;color:white;background-color:red;width:100px;height:40px"></div>
       <!-- 搜索框 -->
-      <td><input type="text" class="form-control" style="height:40px;width:500px" placeholder="title" name="search_string">
+      <td><input type="text" class="form-control" style="border-radius:0px 5px 5px 0px;height:40px;width:500px;border-color: red;" placeholder="title" name="search_string">
       </td >
   </tr>
   <!-- 空行 分隔-->
@@ -375,8 +376,8 @@ $(function(){
   <div class="row">
   {% for item in list %}
   
- 
-      <div class=" col-md-2" style="margin: 10px;height: 350px; background-color: white;" id="{{ forloop.counter }}"><a href="/product/?q={{item.model}}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
+  <!-- box-shadow:2px 2px 5px #000;阴影 -->
+      <div class=" col-md-2" style="box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;" id="{{ forloop.counter }}"><a href="/product/?q={{item.model}}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
       </a>
       </div>
     <!-- 求余数 -->
@@ -388,8 +389,8 @@ $(function(){
   </div>
 </div> 
 </div>
-<div class="jumbotron text-center" style="margin-bottom:0;background-color: grey;height: 100px;">
-  <p>底部内容</p>
+<div class="jumbotron text-center" style="margin-bottom:0;background-color: rgb(94, 91, 91);height: 100px;">
+  <p style="color: lightgrey;">©️2010-2023 FOB AUTO PARTS CO.,LTD. All rights reserved.</p>
 </td>
 
 
