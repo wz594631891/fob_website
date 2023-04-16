@@ -20,7 +20,18 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <style type="text/css">
   /* 缩略图移入边框变红 */
-
+  /* 背景图 */
+  /* body #banner{
+  background-image: url("/static/img/11001_1.jpg");
+} */
+/* 分隔横幅css:背景图 */
+#banner {
+   /* Background pattern from Toptal Subtle Patterns */
+   background-image: url("http://127.0.0.1:8000/static/img/banner.png");
+   background-size: 1200px 56px;
+   height: 56px;
+   width: 98%;
+}
   .small_pic:hover{
     border: 3px solid red;
     /* margin-top: 5px; */
@@ -175,9 +186,9 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li ><a href="#">Home</a></li>
+          <li ><a href="/index">Home</a></li>
           <!-- <li class="active"><a href="#">Product</a></li> -->
-          <li ><a href="#">Product</a></li>
+          <li ><a href="/search">Product</a></li>
           <li><a href="#">About us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" >
@@ -209,8 +220,29 @@
   </div>
   </form>
   <!-- 分割线 -->
-<hr>
+<!-- <hr> -->
+<!-- 下方导航 -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+ 
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="/search/?category=11">Micro Filter</a></li>
+        <!-- <li class="active"><a href="#">Product</a></li> -->
+        <li ><a href="/search/?category=21">O-ring</a></li>
+        <li><a href="/search/?category=22">Rubber Seal</a></li>
+      </ul>
 
+    </div>
+  </div>
+</nav>
 <script src="http://www.jq22.com/js/jq.js"></script>
 <div class="container">
  <!--产品页: 产品图片 标题 型号 规格 购买 -->
@@ -223,9 +255,9 @@
   <tr>
       <!-- 视频  -->
 
-     <td   rowspan="6"  colspan="6">
+     <td   rowspan="7"  colspan="6">
       <img class=" " id="main_pic" style="width: 600px;" src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td></tr>
-      <video src="/static/vid/21092.mov"  controls="" style="width: 800px;display: none;" id="vid"></video>
+      <!-- <video src="/static/vid/21092.mov"  controls="" style="width: 800px;display: none;" id="vid"></video> -->
       </td>
   </tr>
       <!-- 标题 -->
@@ -292,9 +324,14 @@
         </div>      
       </td>
   </tr>
-
+  <!-- 发货时间 -->
+  <tr>
+    <td>
+      
+    </td>
+  </tr>
   <!-- 购买按钮 -->
-  <tr><td ><button class="btn-primary" style="width: 300px;height:50px ;" ><a style="color:white;font-size: 20px;" href="#">Buy</a></button></td></tr>
+  <tr><td ><button class="" style="color:white; width: 300px;height:50px ;background-color: orangered;border-color: orangered;" ><a style="color:white;font-size: 20px;" href="https://rtyperautoparts.aliexpress.com/store/1101407965/search?origin=y&SearchText={{item.title}}">Buy Now</a></button></td></tr>
   <!-- 缩略图*4 -->
   <tr>
     <td ><img class="small_pic img-responsive img-thumbnail" id="pic1" onmouseover='$("#main_pic").attr("src","/static/img/{{item.model}}_1.jpg")'  style="margin-top: 5px; width: 80px;" src="/static/img/{{item.model}}_1.jpg" alt="No picture"></td>
@@ -305,20 +342,49 @@
     <td ><img class="small_pic img-responsive img-thumbnail" id="pic4" onmouseover='$("#main_pic").attr("src","/static/img/{{item.model}}_6.jpg")'  style="margin-top: 5px;width: 80px;" src="/static/img/{{item.model}}_6.jpg" alt="No picture"></td>
   </tr>
 </table>
-
+</div>
   <!-- 分割线
-  <hr> -->
-<!-- 详情: 标题 大图 -->
-<div class="container">
+  <hr> -->  
+ <div class="container-fluid" style="background-color: rgb(245, 239, 239)" >
+   <div class="container">
+     <!-- 分隔横幅 -->
+     <div class="row"><div id="banner" style="background-color:white;border-radius: 5px;;margin: 10px;"></div></div>
+   </div>
+ </div>
   
+<!-- 详情: 标题 大图 -->
+<!-- 外部背景灰色 -->
+<div class="container-fluid" style="background-color: rgb(245, 239, 239);" >
+  <div class="container" style="background-color: white;margin-bottom: 20px;">
+
   <!-- 标签页导航 -->
 <ul class="nav nav-tabs" style="margin: 0px;margin-bottom: 10px;">
-  <li role="presentation" style="width: 10%;" class="active"><a href="#">Detail</a></li>
-  <li role="presentation"><a href="#">Specification</a></li>
+  <!-- 详情按钮 -->
+  <li id="btn_description" role="presentation" style="width: 10%;" class="active"><a href="#">Description</a></li>
+  <!-- 规格按钮:点击后隐藏详情页页,显示规格页 -->
+  <li id="btn_specification" role="presentation"><a href="#">Specification</a></li>
 </ul>
-<table>
+<!-- 规格页:材料;尺寸;型号;数量;oe;产地 6个2*3表格 点击-->
+<table id="specification" style="display: none;font-size: 20px;">
+  <tr > 
+    <td style="width: 500px;padding :10px; "><span style="color:grey">Material:</span>{{item.material}}</td>
+    <td style="padding :10px;;"><span style="color:grey">Size:</span>{{item.length}}*{{item.width}}*{{item.height}}</td>
+  </tr>
+  <tr >
+    <td style="padding :10px;"><span style="color:grey">Model:</span>{{item.model}}</td>
+    <td style="padding :10px;"><span style="color:grey">QTY:100PCS</span></td>
+  </tr>
+  <tr style="padding :10px;">
+    <td style="padding :10px;"><span style="color:grey">oe:</span>{{item.oe}}</td>
+    <td style="padding :10px;"><span style="color:grey">place of original: </span>zhejiang,china</td>
+  </tr>
+</table>
+
+<table id="description" style="display: block;">
   <!-- 标题 -->
   <tr><td><h1>{{item.title}}</h1></td></tr>
+  <!-- 视频 -->
+  <tr><td><video src="/static/vid/{{item.model}}.mov"  controls="" style=" display: none;width: 100%;" id="vid"></video></td></tr>
   <!-- 大图 -->
   <tr><td><img src="/static/img/{{item.model}}_1.jpg" width="100%" alt="No picture"></td></tr>
   <tr><td><img src="/static/img/{{item.model}}_2.jpg" width="100%" alt="No picture"></td></tr>
@@ -359,10 +425,41 @@
   </tr>
 </table>
 </div>
-<div class="jumbotron text-center" style="margin-bottom:0;background-color: grey;height: 100px;">
+</div>
+<!-- 底部栏 -->
+<div class=" jumbotron text-center" style="margin-bottom:0;background-color: grey;height: 100px;">
   <p style="color:white">©️2010-2023 Fob Auto Parts co.,ltd. All rights reserved. </p>
 </div>
 {% endfor %}
+<!-- 标签页导航JS -->
+<script>
+  // 1.绑定规格按钮点击事件&改变按钮class=active状态
+  $('#btn_specification').click(function(){
+  // 点击后隐藏详情页,显示规格页
+    //显示规格页
+    $('#specification').css('display','block')
+    // 隐藏详情页
+    $('#description').css('display','none')
+    // 规格按钮高亮active
+    $('#btn_specification').attr('class','active')
+    // 详情按钮取消高亮
+    $('#btn_description').attr('class','')
+
+  })
+  // 2.绑定详情按钮点击事件&改变按钮class=active状态
+  $('#btn_description').click(function(){
+   // 点击后显示详情页,隐藏规格页
+    //显示详情页
+    $('#description').css('display','block')
+    // 隐藏规格页
+    $('#specification').css('display','none')
+    // 详情按钮高亮active
+    $('#btn_description').attr('class','active')
+    // 规格按钮取消高亮
+    $('#btn_specification').attr('class','')
+  })
+ 
+</script>
 <!-- 数字增减框JS -->
 <script>
   //获取所有+按钮

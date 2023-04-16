@@ -127,6 +127,13 @@ body {
   -moz-box-shadow: 0 2px rgba(13,47,88,.19);
   box-shadow: 0 2px rgba(13,47,88,.19);
 }
+/* <!-- 鼠标移入阴影加深 -->
+    
+    .goods .col-md-2 #1:hover {
+      border: red;
+      border-radius:5px;;box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;
+    }
+   */
 </style>
 <script type="text/javascript" src="/static/js/jquery18.js"></script>
 <script type="text/javascript" src="/static/js/slides.js"></script>
@@ -157,31 +164,31 @@ $(function(){
 </head>
 <!-- <body style="background-color: rgb(245, 239, 239)"> -->
 <body id="rt">
-<!-- 导航 -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="https://rtyperautoparts.aliexpress.com">Rtyper</a>
+  <!-- 导航 -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="https://rtyperautoparts.aliexpress.com">Rtyper</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="/index">Home</a></li>
+          <!-- <li class="active"><a href="#">Product</a></li> -->
+          <li ><a href="/search">Product</a></li>
+          <li><a href="#">About us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+          <li ><a href="#">Register</a></li>
+          <li style="margin-right: 10px;" ><a href="#">Sign in</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li ><a href="#">Home</a></li>
-        <!-- <li class="active"><a href="#">Product</a></li> -->
-        <li ><a href="#">Product</a></li>
-        <li><a href="#">About us</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" >
-        <li ><a href="#">Register</a></li>
-        <li style="margin-right: 10px;" ><a href="#">Sign in</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 <!-- <div class='container-fluid'><img src='https://ae01.alicdn.com/kf/HTB1rgq9bUGF3KVjSZFmq6zqPXXaV.jpg'></div> -->
 <!-- 搜索  -->
 <form method="get" action="/search/">
@@ -195,26 +202,54 @@ $(function(){
       <!-- 搜索按钮 -->
       <td><input value="Search" type="submit" style="border-radius:5px 0px 0px 5px;border:0;color:white;background-color:red;width:100px;height:40px"></div>
       <!-- 搜索框 -->
+      
       <td><input type="text" id="search" value="{{search_string}}" class="form-control" style="border-radius:0px 5px 5px 0px;height:40px;width:500px;border-color: red;" placeholder="title" name="search_string">
+        <!-- 隐形搜索框用于提交类目 -->
+        <input type="text" style="display:none ;"name='category' value="{{category}}">
       </td >
   </tr>
   <!-- 空行 分隔-->
   <tr><td style="height:20px"></td></tr>
   </table>
 </div>
+<!-- 下方导航 -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+ 
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="/search/?category=11">Micro Filter</a></li>
+        <!-- <li class="active"><a href="#">Product</a></li> -->
+        <li ><a href="/search/?category=21">O-ring</a></li>
+        <li><a href="/search/?category=22">Rubber Seal</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
 </form>
 <div class="container-fluid" style="background-color: rgb(245, 239, 239)">
   <div class="row">
 <!-- 侧方导航栏 -->
 <ul class="nav bs-docs-sidenav col-md-2"  style="border-radius:5px; background-color: white;margin-top: 10px;">
     <li class="">
-  <a href="#download">All</a>
+  <a href="/search/">All</a>
   </li>
   <li class="">
-  <a href="#whats-included">Micro Filter</a>
+  <a href="/search/?page={{p}}&search_string={{search_string}}&category=11">Micro Filter</a>
   <ul class="nav">
-  <li class=""><a href="#whats-included-precompiled">Rubber Boots</a></li>
-  <li class=""><a href="#whats-included-source">O-ring</a></li>
+  <!-- <li class=""><a href="/search/?page={{p}}&search_string={{search_string}}&category=26">Rubber Boots</a></li> -->
+  <li class=""><a href="/search/?page={{p}}&search_string={{search_string}}&category=21">O-ring</a></li>
+  <li><a href="/search/?category=22">Rubber Seal</a></li>
+  <li><a href="/search/?category=31">Plastic Cap</a></li>
+  <li><a href="/search/?category=32">Plastic Ring</a></li>
   </ul>
   <ul class="nav">
   </ul>
@@ -225,13 +260,17 @@ $(function(){
   <ul class="nav">
   </ul>
 </ul>
+  
 <script src="http://www.jq22.com/js/jq.js"></script>
  <!-- 产品图片 -->
  <div class="col-md-10" >
   <div class="row">
+  
   {% for item in list %}
   <!-- box-shadow:2px 2px 5px #000;阴影 border-radius:5px;圆角 -->
-      <div class=" col-md-2" style="border-radius:5px;;box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;" id="{{ forloop.counter }}"><a href="/product/?model={{item.model}}"><img  src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
+    
+      <div class="goods col-md-2" style="border-radius:5px;;box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;" id="gd{{ forloop.counter }}">
+        <a style="width: 100%;" href="/product/?model={{item.model}}"><img style="margin-left:0px;margin-top: 0px;margin-right: 0px;" src="/static/img/{{item.model}}_1.jpg" alt="No picture" width="100%"><p>{{item.title}}</p> <span style="color:blue">#{{item.id}} <br> Model:{{item.model}}</span> 
       </a>
       </div>
     <!-- 求余数 -->
@@ -243,10 +282,23 @@ $(function(){
   </div>
 </div> 
 </div>
-<!-- 分页 -->
+<script>
+  // 鼠标移入商品改变css:阴影加深
+  $('.goods').mouseover(function(){
+    // 改变style
+    $(this).attr('style','border-radius:5px;;box-shadow:2px 2px 5px grey;margin: 10px;height: 400px; background-color: white;')
+  })
+  // 移出商品还原css
+  $('.goods').mouseout(function(){
+    // 改变style
+    $(this).attr('style','border-radius:5px;;box-shadow:2px 2px 5px lightgrey;margin: 10px;height: 400px; background-color: white;')
+  })
 
+</script>
+<!-- 分页 -->
+<div class="container">
 <nav aria-label="Page navigation" id="page">
-  <div class="container">
+
   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
@@ -255,7 +307,7 @@ $(function(){
     </li>
     {% for p in page_list %}
     
-    <li><a href="/search/?page={{p}}&search_string={{search_string}}">{{p}}</a></li>
+    <li><a href="/search/?page={{p}}&search_string={{search_string}}&category={{category}}">{{p}}</a></li>
     {% endfor %}
     <li>
       <a href="#" aria-label="Next">
@@ -263,9 +315,9 @@ $(function(){
       </a>
     </li>
   </ul>
-</div>
-</nav>
 
+  </nav>
+</div>
 <!-- vue分页处理 -->
 <!-- [[ msg ]] -->
 <div id="app">
@@ -287,10 +339,8 @@ $(function(){
 </script>
 
 <!-- 页脚 -->
-
-
 <div class="jumbotron text-center" style="margin-bottom:0;background-color: rgb(94, 91, 91);height: 100px;">
   <p style="color: lightgrey;">©️2010-2023 FOB AUTO PARTS CO.,LTD. All rights reserved.</p>
-</td>
+</div>
 </body>
 </html>

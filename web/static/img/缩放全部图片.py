@@ -15,7 +15,9 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 # os.remove(r""+file)
 
 dirs=glob.glob("*.jpg")#获取OEM文件夹
-
+# 输入缩放尺寸
+size=input('请输入缩放尺寸:')
+size=int(size)
 #缩放水印图
 for dir in dirs:
 	file=dir
@@ -30,7 +32,7 @@ for dir in dirs:
 	try:
 		print("源文件"+file,"目标文件"+dir+"\\原图\\")
 		img=Image.open(file)
-		img=img.resize((200,200))
+		img=img.resize((size,size))
 		img.save(file)
 	except:
 		print('异常')
