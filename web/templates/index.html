@@ -1,8 +1,27 @@
 <html>
   <head>
     <!-- 导入常用js bootsrap jQuery -->
-    {% include 'import_js.html' %}
+    <!-- {% include 'import_js.html' %} -->
+    
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+{% load static %}
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+ 
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+ 
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <!-- 网页图标 -->
+    <!-- <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" /> -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="https://g.csdnimg.cn/static/logo/favicon32.ico" media="screen" /> -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico" media="screen" /> -->
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
 <style>
+    
+  /* 菜单CSS */
      /* 第一个li的左边距 */
      #one{       
        margin-left:350px
@@ -27,6 +46,7 @@
        text-align:center;
       /*行高:当行高=标签高度时,文本垂直居中*/
        line-height:45px; 
+       z-index: 6;
        
      }
      /* 鼠标移入变成深蓝色*/
@@ -39,6 +59,7 @@
        width:100%;
        height:45px;
        margin:0px;
+       z-index: 6;
      }
      
      /* 二级菜单 */
@@ -56,7 +77,8 @@
       border-radius:5px;
       /* border: 1px solid black; */
       /* 阴影 */
-      box-shadow:2px 2px 5px rgb(226,226,226)
+      box-shadow:2px 2px 5px rgb(226,226,226);
+      z-index: 1;
      }
      /* 二级标签 */
      .li2{
@@ -67,6 +89,7 @@
       /* border: solid black 1px; */
       /* 字体左对齐 */
       text-align: left;
+      z-index: 6;
         /* height: 200px;
         width: 200px; */
         /* position: absolute; */
@@ -107,18 +130,21 @@ ul,li {
 }
 
     </style>
+
+    
+    <!-- 标题 -->
+    <title>Fob Autoparts</title>
   </head>
   <body >
-  
 
     <!-- 顶部背景图 -->
-    <div style='position:relative; width: 100% ;height: 200px;background-size: auto;background-image: url("/static/img/top_background.png");'>
+    <div style='position:relative; width: 100% ;height: 200px;background-size: auto;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
       <!-- 顶部  -->
     
       <table style="position: absolute;top:40px;left: 347px;z-index: 0;">
         <tr>
           <td rowspan="4"><!-- 商标:定位布局 子绝父相 -->
-            <img src="/static/img/logo.png" style="  " width="200px" height="120px" alt="">
+            <img src="https://sc02.alicdn.com/kf/A756ee3cf63e24d6bb7077cd45f1a67b1P.png" style="  " width="200px" height="120px" alt="">
           </td>
 
           <td style="width:645;height: 30px;">
@@ -133,13 +159,36 @@ ul,li {
               <!-- 国旗 -->
               <div style="display: inline-block;"><img src="/static/img/国旗.png" height="13px" width="13px" alt="" ></div><div style="display: inline-block;"></div><div style="display: inline-block;font-size: 13px;color: black;">CN</div>
             </div>  
-              <!-- 国旗 -->
-              <img src="/static/img/6yrs.png" style="" width="38px" height="18px" alt="">
+              <!-- 灰色框 :开店时间-->
+              <div style="margin-right: 10px;text-align: center;line-height:18px;display: inline-block;background-color: white;opacity:70% ;width: 51;height: 18px;border-radius: 5px;" >
+                <!-- 小太阳 -->
+                <div style="display: inline-block;"><svg class="icbu-icon-svg gs-icon" width="12" height="12" viewBox="0 0 64 64"><circle fill="#FACE32" cx="32" cy="32" r="32"></circle><circle fill="#E3715D" cx="32" cy="32" r="22.667" data-spm-anchor-id="a2700.shop_index.88.i0.4abb69f00d9Nk2"></circle><path fill="#FACE32" d="M17.333 20L20 30.67h24L46.667 20zM20 33.335L17.333 44h29.334L44 33.336zm8-32.002h8V16h-8zM28 48h8v14.667h-8z"></path></svg></div><div style="display: inline-block;font-size: 13px;color: black;">6<span style="position: relative;bottom: 2;vertical-align: top;font-size: 10px; display: inline-block; transform: scale(0.7);">YRS</span></div>
+              </div>
               <!-- verified图片 -->
-              <img style="" src="/static/img/verified.png" class="icbu-verified-icon" height="14px" data-spm-anchor-id="a2700.shop_index.verified-icon.i0.437e62f2m1pjmz">
+              <img style="" src="https://img.alicdn.com/imgextra/i1/O1CN01kpueUS231orwYDJAV_!!6000000007196-2-tps-132-34.png" class="icbu-verified-icon" height="14px" data-spm-anchor-id="a2700.shop_index.verified-icon.i0.437e62f2m1pjmz">
                 <!-- 文字  Multispecialty supplier top:向下便宜-->
-              <span id="supplier" style="position: relative;top:2;display: inline-block;color: rgb(0,52,110);font-size: 12px;"><strong>Multispecialty supplier</strong></span>
-        
+                <span id="supplier" style="position: relative;top:2;display: inline-block;color: rgb(0,52,110);font-size: 12px;"><strong>Multispecialty supplier</strong>
+                  <style>
+                  .glyphicon-info-sign{
+                    font-size:12px;
+                    cursor: pointer;
+                  }</style>  
+                  <!-- 感叹号提示 -->
+                    <label for="inputPassword3" class="control-label"> <span style="opacity:0.2;color: black" class="glyphicon glyphicon-info-sign"></span></label></span>
+                   <!-- 气泡框提示:黑色 -->
+                    <!-- <script>
+                       $(".glyphicon-info-sign:first").tooltip({
+                          trigger: 'hover',
+                          html:true,
+                          placement: 'auto top',
+                          title: function(){
+                            return  "查询单价:合同打款金额/查询次数，或合同上定好的查询单价";
+                          },
+                          container:'body'
+                    });
+ 
+                    </script> -->
+              
             </td>
 
          
@@ -182,8 +231,8 @@ ul,li {
                   height: 300px;
                   /* margin-left: 0px;
                   margin-top: 0px; */
-                
-                  z-index: 2;
+                  position: relative;
+                  z-index: 7;
                   display:none
               }
               .triangle {
@@ -193,7 +242,7 @@ ul,li {
                   border-color: transparent transparent  white;
                   /* border-top-color: #aeaeae; */
                   margin-left: 15px;
-                  z-index: 2;
+                  z-index: 7;
                   display:none
               }
               .cont {
@@ -202,16 +251,16 @@ ul,li {
                   background-color: white;
                   border-radius: 5px;
                   margin-top: 16;
-                  z-index: 2;
+                  z-index: 7;
                   display:none
               }
             </style> 
                <!--气泡框  -->
               <div class="box" style="position: relative;top:-80;left: 350;display: flex;flex-direction: column;">
                 <!-- 三角形 -->
-                <div class="triangle" style=""></div>
+                <div class="triangle" style="position: relative;left: 70;"></div>
                 <!-- 本体 -->
-                <div class="cont" style="padding-left:10px;transform-origin: center top;position: absolute;font-size: 12px;top:2"><h5>Multispecialty supplier</h5> 
+                <div class="cont" style="padding-left:10px;transform-origin: center top;position: absolute;font-size: 12px;top:2;z-index: 10;"><h5>Multispecialty supplier</h5> 
                     For buyers seeking low MOQs and high product variety, Multispecialty Suppliers offer low MOQ customization, end-to-end logistics solutions, and multi-category procurement, backed by their rich industry and service experience and strong understanding of emerging product trends.</div>
                 </div>
               </td>
@@ -223,13 +272,24 @@ ul,li {
     </div>
     <!-- 开店时间6yr
     <img src="/static/img/6year.png" style="position: absolute;top: 80px;left: 320px;;width: 40px;height: 20px;" width="20px" height="10px" alt=""><span style="font-size: 1px;"></span></div> -->
-
+      
     
   <!-- 下拉菜单 -->
-    <!-- 1级菜单 -->
-    <ul class="ul1"  >     
-      <li class="li1" id='one'><a href="">Home</a></li>
-      <li class="li1" style="position: relative;" ><a href="">Products</a>
+    <!-- 1级菜单:图层1 -->
+    <ul class="ul1" style="position:relative;" >     
+      <li class="li1" style="background-color:#a7bed5;" id='one'><a href="">Home</a></li>
+      <!-- 菜单项products 箭头(旋转) -->
+      <!-- 旋转180度带动画CSS -->
+      <!-- <style>
+        .array:hover{
+          /* -webkit-transform:rotate(180deg); */
+          transform:rotate(180deg);
+          /* -webkit-transition:-webkit-transform 1s linear; */
+          /* 0.1s执行动画 */
+          transition:transform 0.1s linear;
+        } -->
+      </style>
+      <li class="li1" style="position: relative;" ><a href="">Products<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
         <!-- 二级下拉菜单  position:absolute;bottom: 0;-->
         <ul class="ul2" style="list-style:none;width:200px;">
           <li class="li2" style="width:200px;height:30px;"><a href="">See all categories</a></li>
@@ -246,7 +306,7 @@ ul,li {
           <li class="li2"><a class="a2" href="">Ungrouped</a></li>
         </ul>
       </li>
-      <li class="li1" ><a href="">Profile</a>
+      <li class="li1" ><a href="">Profile<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
         <!-- 二级下拉菜单-->
         <ul class="ul2" style="list-style:none;width:200px;">
           <li class="li2" style="width:200px;height:30px;"><a href="">Company Overview</a></li>
@@ -257,7 +317,7 @@ ul,li {
       <li class="li1" ><a href="">Promotion</a></li>
       <li class="li1" ><a href="">Tips</a></li>   
       <!-- 搜索框 -->
-      <li><input style=" border-radius:15px;border:#a7bed5" tabindex="0" autocomplete="off" placeholder="Search in this store" value="" style="width: 164px;" ></li>
+      <li id="search_li" ><input id="search" style="margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5" tabindex="0" autocomplete="off" placeholder="Search in this store" value=""  ><span class="glyphicon glyphicon-search" style="cursor: pointer;;opacity: 0.5;;position: relative;right: 20;" aria-hidden="true"></span></li>
 
     </ul>
   </body>
@@ -291,19 +351,67 @@ ul,li {
         $('.ul1>li:eq(2)>ul').css('display','none')
       })
     </script>
-    <!-- 气泡框js -->
+    <!-- 气泡框js :z-index无效-->
     <script>
       // 指向Multispecialty supplier时显示气泡框
       $('#supplier').mouseover(function(){
         // 修改气泡框的display属性
         $('.box,.cont,.triangle').css('display','block')
+        //指向字体时减少菜单的z-index
+        $('.ul1,.li1,.ul2,.li2').css('z-index','-1')
+
       })
         // 鼠标移出Multispecialty supplier时隐藏气泡框
         $('#supplier').mouseout(function(){
         // 修改气泡框的display属性
         $('.box,.cont,.triangle').css('display','none')
+        //指向字体时减少菜单的z-index
+        $('.ul1,.li1,.ul2,.li2').css('z-index','6')
       })
+      
     </script>
-   
-</html>
-
+    <!-- 搜索框JS -->
+    <script>
+      // 移入搜索框变橙色
+      $('#search').mouseover(function(){
+        // 修改气搜索框属性
+        $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid rgb(191,74,0)')
+     })
+       // 鼠标移出搜索框变原来
+       $('#search').mouseout(function(){
+        // 修改气搜索框属性
+        $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5')
+     })
+    </script>
+    <!-- 下拉箭头JS -->
+    <script>
+      /*移入Products旋转180度箭头*/
+      $('.ul1>li:eq(1)').mouseover(function(){
+        // 旋转180度箭头 transform:rotate(角度deg)
+        $('.array:eq(0)').css('transform','rotate(180deg)')
+        // 0.1s内执行过度动画
+        $('.array:eq(0)').css('transition','transform 0.1s linear')
+      })
+      // 移出Products改回0度
+      $('.ul1>li:eq(1)').mouseout(function(){
+        // 改回0度
+        $('.array:eq(0)').css('transform','rotate(0deg)')
+        // 0.1s内执行过度动画
+        $('.array:eq(0)').css('transition','transform 0.1s linear')
+      })
+      /* 移入Profile旋转180度箭头*/
+      $('.ul1>li:eq(2)').mouseover(function(){
+        // 旋转180度箭头 transform:rotate(角度deg)
+        $('.array:eq(1)').css('transform','rotate(180deg)')
+        // 0.1s内执行过度动画
+        $('.array:eq(1)').css('transition','transform 0.1s linear')
+      })
+      // 移出Profile改回0度
+      $('.ul1>li:eq(2)').mouseout(function(){
+        // 改回0度
+        $('.array:eq(1)').css('transform','rotate(0deg)')
+        // 0.1s内执行过度动画
+        $('.array:eq(1)').css('transition','transform 0.1s linear')
+     })
+    </script>
+ </html>

@@ -1,6 +1,7 @@
 #v1.3 0316
 #  0302 添加了登陆页面认证(未登录时访问student_list/会跳转login/,用sessionid验证) 1.1:查询是否数据库已有相同用户名0303 0306:美化了student_list.html;添加google_search_picture.html v1.3:230316:添加多种搜索框&导航栏
 #
+# from django.views.generic import TemplateView#图标
 from django.shortcuts import render,HttpResponse,redirect
 from . import models
 from exsql import execute
@@ -184,26 +185,27 @@ def student_list(request):
 	# return HttpResponse('haha')
 def index(request):
 	# return HttpResponse('<h1>你好</h1>')#回应简单文本
-	# 微滤网
-	micro_filter_list = models.Aliexpress_goods.objects.filter(model__regex=r'^11[0-9-]{3,6}$')[0:10]
-	print('微滤网')
-	print(micro_filter_list)
-	# O型圈
-	o_ring_list = models.Aliexpress_goods.objects.filter(model__regex=r'^21[0-9-]{3,6}$')[0:10]
-	print('O型圈')
-	print(o_ring_list)
-	# 密封圈
-	rubber_seal_list = models.Aliexpress_goods.objects.filter(model__regex=r'^22[0-9-]{3,6}$')[0:10]
-	print('密封圈')
-	print(rubber_seal_list)
-	# 塑料件
-	plastic_parts_list = models.Aliexpress_goods.objects.filter(model__regex=r'^3(2|1)[0-9-]{3,6}$')[0:10]
-	print('塑料件')
-	print(plastic_parts_list)
+	# # 微滤网
+	# micro_filter_list = models.Aliexpress_goods.objects.filter(model__regex=r'^11[0-9-]{3,6}$')[0:10]
+	# print('微滤网')
+	# print(micro_filter_list)
+	# # O型圈
+	# o_ring_list = models.Aliexpress_goods.objects.filter(model__regex=r'^21[0-9-]{3,6}$')[0:10]
+	# print('O型圈')
+	# print(o_ring_list)
+	# # 密封圈
+	# rubber_seal_list = models.Aliexpress_goods.objects.filter(model__regex=r'^22[0-9-]{3,6}$')[0:10]
+	# print('密封圈')
+	# print(rubber_seal_list)
+	# # 塑料件
+	# plastic_parts_list = models.Aliexpress_goods.objects.filter(model__regex=r'^3(2|1)[0-9-]{3,6}$')[0:10]
+	# print('塑料件')
+	# print(plastic_parts_list)
 	#更多产品
-	search = models.Aliexpress_goods.objects.all()[0:10]
-	return render(request,"index.html",{'micro_filter_list':micro_filter_list,'o_ring_list':o_ring_list,'rubber_seal_list':rubber_seal_list,'plastic_parts_list':plastic_parts_list,'list':search,"title":"搜索产品(官网)"})
-
+	# search = models.Aliexpress_goods.objects.all()[0:10]
+	print('加载首页')
+	# return render(request,"index.html",{'micro_filter_list':micro_filter_list,'o_ring_list':o_ring_list,'rubber_seal_list':rubber_seal_list,'plastic_parts_list':plastic_parts_list,'list':search,"title":"搜索产品(官网)"})
+	return render(request,'index.html')
 	# return render(request,'index.html',{'name':'叶志豪'})
 #注册页 register/
 def register(request):

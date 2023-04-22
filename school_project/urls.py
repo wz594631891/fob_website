@@ -15,6 +15,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.views.generic.base import RedirectView#图标
+
 from django.contrib import admin
 from django.urls import path
 from web import views
@@ -24,12 +26,14 @@ urlpatterns = [
 	path('index/',views.index),#路径函数对应关系,首页
     path('register/',views.register),#注册页
     path('login/',views.login),#登录页面
-    path('google_search_picture/',views.google_search_picture),#谷歌搜图
+    # path('google_search_picture/',views.google_search_picture),#谷歌搜图
     path('wait_ship_aliexpress_order/',views.wait_ship_aliexpress_order),#速卖通订单
     path('delete/',views.delete),#删除速卖通订单
     path('shipping_list/',views.shipping_list),#删除速卖通订单
     path('search/',views.search),#福步搜索产品页
     path('product/',views.product),#福步产品页
+    path('favicon.ico', RedirectView.as_view(url='static/img/favicon.ico')),     #图标 
+
     # #加载本地图片X
     # url(r'^book/(?P<path>.*)$', serve, {'document_root':'D:/github_goods'})
 ]
