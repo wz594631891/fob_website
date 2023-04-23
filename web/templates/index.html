@@ -365,8 +365,8 @@ ul,li {
     <div class="container-fluid" style="background-size: 1900px 726px;background-image: url('/static/img/背景图.jpg');">
       <table>
         <tr>
-          <td>
-          <!-- 轮播图 -->
+          <td style="">
+          <!-- 轮播图css -->
             <style>
               #box{
                  width:  1900px;
@@ -384,19 +384,44 @@ ul,li {
                  height: 726px;
                  
               }
-             
+              /* 轮播图动画:向左平移图片:左边距0->-1900 */
+              @keyframes scrollPic{
+                /* 从左边距0 */
+                from{margin-left: 0px;}
+                /* 到左边距-1900 */
+                to{margin-left: -1900px;}
+              }
+              /* 轮播图动画:向左平移图片:左边距-1900到-3800 */
+             @keyframes scrollPic-1900to-3800{
+              /* 从左边距0 */
+              from{margin-left: -1900px;}
+              /* 到左边距-1900 */
+              to{margin-left: -3800px;}
+             } 
+             /* 轮播图动画:向右平移图片:左边距0<--1900:用于圆点点击 */
+              @keyframes scrollPic{
+                /* 从左边距0 */
+                from{margin-left: 0px;}
+                /* 到左边距-1900 */
+                to{margin-left: -1900px;}
+              }
 
 
             </style>
       
           
-              <div id="box" style="position: relative;">
+              <div id="box" style="position: relative;display:flex">
                   <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img1">
-                  <img class="scrollPic" src="/static/img/轮播图2.jpg" alt="" id="img1">
+                  <img class="scrollPic" src="/static/img/轮播图2.jpg" alt="" id="img2">
+                  <!-- 假的第三张 -->
+                  <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img3">
                   <!-- 左箭头 -->
                   <div class=" arrow leftArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 369;"><img class="arrow leftArrow" style="display: none;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
                   <!-- 右箭头 -->
                   <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 394;"><img style="display: none;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
+                  <!-- 圆点:两个 -->
+                  <div id="dot1" style="display:block;z-index: 7;left:50%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
+                  <div id="dot2" style="display:block;z-index: 7;left:54%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
               </div>
               <script>
                 /*移入box时显示箭头*/
@@ -409,20 +434,87 @@ ul,li {
               </script>
               <!-- 轮播图JS -->
           <script>
-              var img1=document.getElementById("img1");  
-              console.log(img1)
-              console.log(img1.src)
-              var i=0;  
-            //5行代码解最简单的轮播图
-             setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次  
-              function lubo(){
-               img1.style.marginLeft=i+"px"; //修改css样式：图片距离box左边的距离   
-               console.log(img1.style.marginLeft)
-               i-=1900;  //距离 减(向左)  1张图片宽度
-               if(i==-1900*2){ i=0}   //一共有4张图片，所以到4的时候回到最开始      
-               }
+            //   var img1=document.getElementById("img1");  
+            //   console.log(img1)
+            //   console.log(img1.src)
+            //   var i=0;  
+            // //5行代码解最简单的轮播图
+            //  setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次  
+            //   function lubo(){
+            //    img1.style.marginLeft=i+"px"; //修改css样式：图片距离box左边的距离   
+            //    console.log(img1.style.marginLeft)
+            //    i-=1900;  //距离 减(向左)  1张图片宽度
+            //    if(i==-1900*2){ i=0}   //一共有4张图片，所以到4的时候回到最开始      
+            //    }
              </script>
+             <script>
+              /*
+              原理:拉动第一张图0->-1900->-3800-.自动带动后面的图左边距到达-3800时回到原点0,配合两个动画实现
+              三张图片:2张轮播图,第三张为假图(实际第一张图)
+              */ 
+              /**轮播图:图片&圆点JS**/
+              // 获取3张图片
+              var img1=$('#img1')
+              var img2=$('#img2')
+              var img3=$('#img3')
+              var i=0
+              // setInterval(function(){
+                setInterval("lubo()",1000);
+                function lubo(){
+                  // img1.css('marginLeft',i+'px')
+                  if (i==0){
+                    // 拉动第一张图0->-1900
+                    img1.css('animation','scrollPic 1s ')
+                    // 展现第1张图时隐藏圆点2
+                    console.log('展现图1隐藏圆点2显示圆点1')
+                    $('#dot1').css('display','block')
+                    $('#dot2').css('display','none')
+                  }
+                  else if(i==-1900){
+                    //拉动第一张图 -1900->-3800
+                    img1.css('animation','scrollPic-1900to-3800 1s ')
+                    // 展现第二张图时隐藏圆点1
+                    console.log('展现图2隐藏圆点1显示圆点2')
+                    $('#dot1').css('display','none')
+                    $('#dot2').css('display','block')
+                  }
+                  console.log('图1:',img1.css('marginLeft'))
+                  console.log('图2:',img2.css('marginLeft'))
+                  console.log('图3:',img3.css('marginLeft'))
+                  i-=1900;
+                  if(i==-1900*3){
+                    i=0
+                    // 展现第1张图时隐藏圆点2
+                    console.log('展现图1隐藏圆点2显示圆点1')
+                    $('#dot1').css('display','block')
+                    $('#dot2').css('display','none')
+                  }
+                }
+                
+
+             </script>
+             
+              <script>
+                /* 圆点JS*/
+                // 根据img1的左边距判断现在展现哪张图确定亮哪个圆点:-1900px时展现图2,否则是图1
+                var img1=$('#img1')
+                // 展现第二张图时隐藏圆点1
+                if(img1.css('marginLeft')=='-1900px'){
+                  console.log('展现图2隐藏圆点1显示圆点2')
+                  $('#dot1').css('display','none')
+                  $('#dot2').css('display','block')
+                }else{
+                  // 展现第1张图时隐藏圆点2
+                  console.log('展现图1隐藏圆点2显示圆点1')
+                  $('#dot1').css('display','block')
+                  $('#dot2').css('display','none')
+
+                }
+
+              </script>
           </td>
+        
+         
       </tr>
     </table>
     </div>
