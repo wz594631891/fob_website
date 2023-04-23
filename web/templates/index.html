@@ -4,7 +4,7 @@
     <!-- {% include 'import_js.html' %} -->
     
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-{% load static %}
+<!-- {% load static %} -->
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
  
@@ -18,7 +18,7 @@
     <!-- <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" /> -->
     <!-- <link rel="shortcut icon" type="image/x-icon" href="https://g.csdnimg.cn/static/logo/favicon32.ico" media="screen" /> -->
     <!-- <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico" media="screen" /> -->
-    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <!-- <link rel="shortcut icon" href="/static/img/favicon.ico"> -->
 <style>
     
   /* 菜单CSS */
@@ -28,6 +28,13 @@
      }
      
      a{
+       /*文本颜色*/
+       color:white;
+       /*去掉链接初始样式(去掉下划线)*/
+       text-decoration:none;
+     }
+     /* 一级菜单样式 */
+     ul1>a:hover{
        /*文本颜色*/
        color:white;
        /*去掉链接初始样式(去掉下划线)*/
@@ -47,6 +54,7 @@
       /*行高:当行高=标签高度时,文本垂直居中*/
        line-height:45px; 
        z-index: 6;
+     
        
      }
      /* 鼠标移入变成深蓝色*/
@@ -79,6 +87,8 @@
       /* 阴影 */
       box-shadow:2px 2px 5px rgb(226,226,226);
       z-index: 1;
+        /* 背景白色 */
+        background-color: white;
      }
      /* 二级标签 */
      .li2{
@@ -90,6 +100,10 @@
       /* 字体左对齐 */
       text-align: left;
       z-index: 6;
+        /* 背景白色 */
+        background-color: white;
+         /*圆角 */
+      border-radius:0px 0px 5px 5px;
         /* height: 200px;
         width: 200px; */
         /* position: absolute; */
@@ -138,10 +152,18 @@ ul,li {
   <body >
 
     <!-- 顶部背景图 -->
-    <div style='position:relative; width: 100% ;height: 200px;background-size: auto;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
+    <div style='position:relative; width: 100% ;height: 200px;background-size: 100%;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
       <!-- 顶部  -->
     
-      <table style="position: absolute;top:40px;left: 347px;z-index: 0;">
+      <table style="position: absolute;left: 347px;z-index: 0;">
+        <tr style="height: 40;">
+          <td></td>
+          <td></td>
+          <td style="display: flex;flex-direction: row-reverse;">
+            <!-- 顶部标签:verified by TüVRheinland:图片&文字&感叹号 -->
+            <div  style="width: 213px;height: 25px;background-color: white;display: flex;border-radius:0px 0px 5px 5px ;padding-left: 10px;padding-top: 5px;cursor:pointer">
+              <img src="https://img.alicdn.com/imgextra/i1/O1CN01kpueUS231orwYDJAV_!!6000000007196-2-tps-132-34.png" height="14px" ><span style="color: rgb(0,52,110);font-weight:600 ">&nbspby TüVRheinland</span><label for="inputPassword3" class="control-label"> <span style="opacity:0.2;color: black" class="glyphicon glyphicon-info-sign"></span></label></div></td>
+        </tr>
         <tr>
           <td rowspan="4"><!-- 商标:定位布局 子绝父相 -->
             <img src="https://sc02.alicdn.com/kf/A756ee3cf63e24d6bb7077cd45f1a67b1P.png" style="  " width="200px" height="120px" alt="">
@@ -218,7 +240,18 @@ ul,li {
               <div style="display: inline-block;"><img src="/static/img/check.png" height="13px" width="13px" alt="" ></div><div style="display: inline-block;"></div><div style="display: inline-block;font-size: 13px;color: black;"> Minor customization </div>
             </div>  
           </td>
-          <td></td>
+          <!-- 瞬大动画(爱心;支持JS在页脚) -->
+          <style>
+            /* 定义动画 */
+            @keyframes bigSmall{
+              /* 变大1.5倍:transform:scale(倍数) */
+              from{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color:rgb(204,86,1);;vertical-align: middle;display:inline-block;font-size: 15;transform: scale(1.5);}
+              /* 回到原样 */
+              to{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(204,86,1);;;vertical-align: middle;display:inline-block;font-size: 15;}
+            }
+          </style>
+          <!-- 爱心&Follow 字体描边:-webkit-text-stroke: 0.5px white;(爱心);弹性布局;横向逆向排列;.glyphicon.glyphicon-heart:爱心 -->
+          <td style="padding-right: 40px;;display: flex;width: 300;flex-direction: row-reverse;"><!-- 字体 --><span style="opacity: 0.8;cursor:pointer;display: inline-block;margin-top: 5px;">&nbspFollow</span><span id="love" style="-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(125,146,163);;vertical-align: middle;display:inline-block;font-size: 15; " class="glyphicon glyphicon-heart" aria-hidden="true"></span></td>
            
         </tr>
         <tr>
@@ -266,9 +299,17 @@ ul,li {
               </td>
         </tr>
       </table>
+    <!-- 右侧边悬浮邮件按钮0423 -->
+    <!-- css:移入字体变橙色&背景变淡橙色 -->
+    <style>#mailBox:hover{color:rgb(204,86,1);background-color: rgb(245, 240, 236);}</style>
+    <div id="mailBox" style="z-index: 7;;background-color: rgb(245, 240, 236);padding-top: 15;border-radius:5px;display: flex;flex-direction: column;;position:fixed;right: 20px;top:310;width: 65;height: 90;text-align: center;vertical-align: middle;cursor: pointer;">
+      <!-- 邮箱图标 -->
+      <span style=" height: 26;display:inline-block;font-size: 25;color: rgb(204,86,1);" class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+       
+      <span id="contactSupplier" style="display:inline-block;">Contact Supplier</span>
+    </div>
     
-    <div style="position: absolute;top: 80px;left:270px;width: 40px;height: 20px; background-color: rgb(241,241,241);">
-   <span style="font-size: 1px;"></span></div>
+ 
     </div>
     <!-- 开店时间6yr
     <img src="/static/img/6year.png" style="position: absolute;top: 80px;left: 320px;;width: 40px;height: 20px;" width="20px" height="10px" alt=""><span style="font-size: 1px;"></span></div> -->
@@ -277,7 +318,7 @@ ul,li {
   <!-- 下拉菜单 -->
     <!-- 1级菜单:图层1 -->
     <ul class="ul1" style="position:relative;" >     
-      <li class="li1" style="background-color:#a7bed5;" id='one'><a href="">Home</a></li>
+      <li class="li1" style="background-color:#a7bed5;"  id='one'><a style="text-decoration: none;color:#ffffff;" href="">Home</a></li>
       <!-- 菜单项products 箭头(旋转) -->
       <!-- 旋转180度带动画CSS -->
       <!-- <style>
@@ -288,12 +329,12 @@ ul,li {
           /* 0.1s执行动画 */
           transition:transform 0.1s linear;
         } -->
-      </style>
-      <li class="li1" style="position: relative;" ><a href="">Products<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+      <!-- </style>  -->
+      <li class="li1" style="position: relative;" ><a style="text-decoration: none;color:#ffffff;" href="">Products<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
         <!-- 二级下拉菜单  position:absolute;bottom: 0;-->
         <ul class="ul2" style="list-style:none;width:200px;">
           <li class="li2" style="width:200px;height:30px;"><a href="">See all categories</a></li>
-          <li class="li2"><a  class="a2" href="">Engine overhaul package</a></li>
+          <li class="li2"><a   class="a2" href="">Engine overhaul package</a></li>
           <li class="li2"><a class="a2" href="">Fuel Line Quick Connector</a></li>
           <li class="li2"><a class="a2" href="">VVT Valve</a></li>
           <li class="li2"><a class="a2" href="">Clutch Slave Cylinder</a></li>
@@ -306,20 +347,82 @@ ul,li {
           <li class="li2"><a class="a2" href="">Ungrouped</a></li>
         </ul>
       </li>
-      <li class="li1" ><a href="">Profile<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+      <li class="li1" ><a style="text-decoration: none;color:#ffffff;" style="text-decoration: none;color:#ffffff;" href="">Profile<span  style="display: inline-block;margin-left: 5px;position: relative;top:3;" class="array glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
         <!-- 二级下拉菜单-->
         <ul class="ul2" style="list-style:none;width:200px;">
           <li class="li2" style="width:200px;height:30px;"><a href="">Company Overview</a></li>
           <li class="li2"><a  class="a2" href="">Business Performance</a></li>
         </ul>
       </li>
-      <li class="li1" ><a href="">Contacts</a></li>
-      <li class="li1" ><a href="">Promotion</a></li>
-      <li class="li1" ><a href="">Tips</a></li>   
+      <li class="li1" ><a style="text-decoration: none;color:#ffffff;" href="">Contacts</a></li>
+      <li class="li1" ><a style="text-decoration: none;color:#ffffff;" href="">Promotion</a></li>
+      <li class="li1" ><a style="text-decoration: none;color:#ffffff;" href="">Tips</a></li>   
       <!-- 搜索框 -->
       <li id="search_li" ><input id="search" style="margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5" tabindex="0" autocomplete="off" placeholder="Search in this store" value=""  ><span class="glyphicon glyphicon-search" style="cursor: pointer;;opacity: 0.5;;position: relative;right: 20;" aria-hidden="true"></span></li>
 
     </ul>
+    <!-- 大盒子:背景图  -->
+    <div class="container-fluid" style="background-size: 1900px 726px;background-image: url('/static/img/背景图.jpg');">
+      <table>
+        <tr>
+          <td>
+          <!-- 轮播图 -->
+            <style>
+              #box{
+                 width:  1900px;
+                 /* width:  100%; */
+                 height: 726px;
+                 border: 1px solid #000;
+                 /* //超出隐藏 */
+                 overflow: hidden;  
+                  
+              }
+              /* 轮播图图片 */
+              .scrollPic{
+                float:left;
+                width:  1900px;
+                 height: 726px;
+                 
+              }
+             
+
+
+            </style>
+      
+          
+              <div id="box" style="position: relative;">
+                  <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img1">
+                  <img class="scrollPic" src="/static/img/轮播图2.jpg" alt="" id="img1">
+                  <!-- 左箭头 -->
+                  <div class=" arrow leftArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 369;"><img class="arrow leftArrow" style="display: none;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
+                  <!-- 右箭头 -->
+                  <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 394;"><img style="display: none;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
+              </div>
+              <script>
+                /*移入box时显示箭头*/
+                // jquery hover事件 hover(鼠标移入,鼠标移出)
+                $('#box').hover(function(){
+                  $('.arrow').css('display','block')
+                },function(){
+                  $('.arrow').css('display','none')
+                })
+              </script>
+              <!-- 轮播图JS -->
+          <script>
+              var img1=document.getElementById("img1");  
+              var i=0;  
+            //5行代码解最简单的轮播图
+             setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次  
+              function lubo(){
+               img1.style.marginLeft=i+"px"; //修改css样式：图片距离box左边的距离   
+               i-=1900;  //距离 减(向左)  1张图片宽度
+               if(i==-1900*2){ i=0}   //一共有4张图片，所以到4的时候回到最开始      
+               }
+             </script>
+          </td>
+      </tr>
+    </table>
+    </div>
   </body>
   <footer>
     <!-- 绑定鼠标移入事件:鼠标移入一级标签显示二级菜单 -->
@@ -382,6 +485,11 @@ ul,li {
         // 修改气搜索框属性
         $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5')
      })
+      // 点击搜索框变橙色
+      $('#search').click(function(){
+        // 修改气搜索框属性
+        $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid rgb(191,74,0)')
+     })
     </script>
     <!-- 下拉箭头JS -->
     <script>
@@ -414,4 +522,58 @@ ul,li {
         $('.array:eq(1)').css('transition','transform 0.1s linear')
      })
     </script>
+    <!-- 爱心&FollowJS -->
+    <script>
+        /* 鼠标移入:原样式变深色否则不变*/
+        $('#love').mouseover(function(){
+          //css判断颜色:橙色就不变,否则变回原样
+          var color=$('#love').css('color')//获取color属性
+          console.log(color)
+          console.log(color=='rgb(204,86,1)')
+          var style=$('#love').attr('style')
+          console.log(style)
+          if(color=='rgb(204, 86, 1)'){
+            console.log('橙色就不变')
+          }
+          else{
+            $('#love').attr('style','cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(94,110,120);;vertical-align: middle;display:inline-block;font-size: 15; ')
+          }
+      })
+      // 移出变回原样或者橙色
+      $('#love').mouseout(function(){
+        //css判断颜色:橙色就不变,否则变回原样
+        var color=$('#love').css('color')
+        console.log(color)
+        console.log(color=='rgb(204,86,1)')
+        
+        if(color=='rgb(204, 86, 1)'){
+          console.log('橙色就不变')
+        }
+        else{
+          $('#love').attr('style','-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(125,146,163);;vertical-align: middle;display:inline-block;font-size: 15; ')
+
+        }
+      })
+      // 点击变成橙色&或者灰色
+      $('#love').click(function(){
+        //获取颜色
+        var color=$('#love').css('color')
+        console.log(color)
+        //css判断颜色:橙色就变灰色,灰色就变橙色
+        //橙色变灰色
+        if(color=='rgb(204, 86, 1)'){
+          console.log('橙色就变灰色')
+          $('#love').attr('style','cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(94,110,120);;vertical-align: middle;display:inline-block;font-size: 15; ')
+          var color=$('#love').css('color')
+           console.log(color)
+        }
+        //灰色就变橙色(调用动画:animation-duration:0.5s;animation-name:bigSmall:0.5秒执行bigsmall)
+        else{
+          $('#love').attr('style','cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.8;color: rgb(204,86,1);vertical-align: middle;display:inline-block;font-size: 15; animation-duration:0.5s;animation-name:bigSmall')
+
+        }
+     })
+    </script>
+  
+  </footer>
  </html>
