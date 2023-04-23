@@ -415,6 +415,7 @@ ul,li {
              setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次  
               function lubo(){
                img1.style.marginLeft=i+"px"; //修改css样式：图片距离box左边的距离   
+               console.log(img1.style.marginLeft)
                i-=1900;  //距离 减(向左)  1张图片宽度
                if(i==-1900*2){ i=0}   //一共有4张图片，所以到4的时候回到最开始      
                }
