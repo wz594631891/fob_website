@@ -6,6 +6,8 @@
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <!-- {% load static %} -->
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<!-- 导入vue2 -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.js"></script>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
  
 <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +15,8 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
  
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
   
     <!-- 网页图标 -->
     <!-- <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" /> -->
@@ -150,7 +154,7 @@ ul,li {
     <title>Fob Autoparts</title>
   </head>
   <body >
-
+  
     <!-- 顶部背景图 -->
     <div style='position:relative; width: 100% ;height: 200px;background-size: 100%;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
       <!-- 顶部  -->
@@ -433,20 +437,6 @@ ul,li {
                 })
               </script>
               <!-- 轮播图JS -->
-          <script>
-            //   var img1=document.getElementById("img1");  
-            //   console.log(img1)
-            //   console.log(img1.src)
-            //   var i=0;  
-            // //5行代码解最简单的轮播图
-            //  setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次  
-            //   function lubo(){
-            //    img1.style.marginLeft=i+"px"; //修改css样式：图片距离box左边的距离   
-            //    console.log(img1.style.marginLeft)
-            //    i-=1900;  //距离 减(向左)  1张图片宽度
-            //    if(i==-1900*2){ i=0}   //一共有4张图片，所以到4的时候回到最开始      
-            //    }
-             </script>
              <script>
               /*
               原理:拉动第一张图0->-1900->-3800-.自动带动后面的图左边距到达-3800时回到原点0,配合两个动画实现
@@ -459,12 +449,12 @@ ul,li {
               var img3=$('#img3')
               var i=0
               // setInterval(function(){
-                setInterval("lubo()",1000);
+                setInterval("lubo()",2000);
                 function lubo(){
                   // img1.css('marginLeft',i+'px')
                   if (i==0){
                     // 拉动第一张图0->-1900
-                    img1.css('animation','scrollPic 1s ')
+                    img1.css('animation','scrollPic 2s ')
                     // 展现第1张图时隐藏圆点2
                     console.log('展现图1隐藏圆点2显示圆点1')
                     $('#dot1').css('display','block')
@@ -472,7 +462,7 @@ ul,li {
                   }
                   else if(i==-1900){
                     //拉动第一张图 -1900->-3800
-                    img1.css('animation','scrollPic-1900to-3800 1s ')
+                    img1.css('animation','scrollPic-1900to-3800 2s ')
                     // 展现第二张图时隐藏圆点1
                     console.log('展现图2隐藏圆点1显示圆点2')
                     $('#dot1').css('display','none')
@@ -490,10 +480,10 @@ ul,li {
                     $('#dot2').css('display','none')
                   }
                 }
+               
+                    
                 
-
              </script>
-             
               <script>
                 /* 圆点JS*/
                 // 根据img1的左边距判断现在展现哪张图确定亮哪个圆点:-1900px时展现图2,否则是图1
@@ -508,16 +498,19 @@ ul,li {
                   console.log('展现图1隐藏圆点2显示圆点1')
                   $('#dot1').css('display','block')
                   $('#dot2').css('display','none')
-
                 }
-
               </script>
           </td>
-        
-         
       </tr>
     </table>
     </div>
+    <!-- 防止vue和django冲突 -->
+    {% verbatim myblock %}
+  <!-- vue容器 -->
+  <div id="root">
+  </div> 
+{% endverbatim myblock %}
+  <!-- vue容器end -->
   </body>
   <footer>
     <!-- 绑定鼠标移入事件:鼠标移入一级标签显示二级菜单 -->
@@ -668,6 +661,17 @@ ul,li {
 
         }
      })
+    </script>
+    <!-- vue代码  -->
+    <script>
+     var vm= new Vue({
+        el:"#root",
+        data:{
+          // 存储颜色rgb
+          orange:'rgb(204,86,1)',
+          grey:'rgb(94,110,120)'
+        }
+      })
     </script>
   
   </footer>
