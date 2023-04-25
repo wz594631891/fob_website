@@ -365,8 +365,8 @@ ul,li {
       <li id="search_li" ><input id="search" style="margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5" tabindex="0" autocomplete="off" placeholder="Search in this store" value=""  ><span class="glyphicon glyphicon-search" style="cursor: pointer;;opacity: 0.5;;position: relative;right: 20;" aria-hidden="true"></span></li>
 
     </ul>
-    <!-- 大盒子:背景图  -->
-    <div class="container-fluid" style="background-size: 1900px 726px;background-image: url('/static/img/背景图.jpg');">
+    <!-- 大盒子:背景图  :background-size: 1900px 726px;-->
+    <div class="container-fluid" style="background-size: 1900px ;background-image: url('/static/img/背景图.jpg');">
       <table>
         <tr>
           <td style="">
@@ -424,8 +424,8 @@ ul,li {
                   <!-- 右箭头 -->
                   <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 394;"><img style="display: none;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
                   <!-- 圆点:两个 -->
-                  <div id="dot1" style="display:block;z-index: 7;left:50%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
-                  <div id="dot2" style="display:block;z-index: 7;left:54%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
+                  <div id="dot1" style="display:block;z-index: 7;left:49%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
+                  <div id="dot2" style="display:block;z-index: 7;left:51%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
               </div>
               <script>
                 /*移入box时显示箭头*/
@@ -503,7 +503,97 @@ ul,li {
           </td>
       </tr>
     </table>
-    </div>
+    
+    <!-- 详情页CSS:整体布局 -->
+    <style>
+      table:last-child{
+        width: 1200px;
+      }
+    </style>
+    <!-- 三.详情页 -->
+    <table class="container">
+      <!-- 1.多国国旗条 -->
+      <tr>
+        <td>
+          <!-- 国旗条CSS:移入上移10px -->
+          <style>
+            #flags>div:hover{
+              transform:translateY(-10px);
+              transition:0.5s linear
+            }
+          </style>
+          <div id="flags" style="display: flex;margin-left: 0px;"><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="https://fobwerks.en.alibaba.com/de_DE/?spm=a2700.shop_index.204728.1.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" ><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2_XYcoXGWBuNjy0FbXXb4sXXa_!!3528491912.png" style="width: 66px; height: 77px;" ></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/pt_PT/?spm=a2700.shop_index.204728.2.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.2"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2ynh9fZyYBuNkSnfoXXcWgVXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/es_ES/?spm=a2700.shop_index.204728.3.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.3"><img src="https://img.alicdn.com/imgextra/i3/3528491912/TB2wjszonlYBeNjSszcXXbwhFXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/fr_FR/?spm=a2700.shop_index.204728.4.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.4"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2E_qUobSYBuNjSspiXXXNzpXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/it_IT/?spm=a2700.shop_index.204728.5.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.5"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2MzaSf98YBeNkSnb4XXaevFXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/ru_RU/?spm=a2700.shop_index.204728.6.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.6"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2npYcoXGWBuNjy0FbXXb4sXXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/ko_KR/?spm=a2700.shop_index.204728.7.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.7"><img src="https://img.alicdn.com/imgextra/i3/3528491912/TB2GNlUoDtYBeNjy1XdXXXXyVXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/ja_JP/?spm=a2700.shop_index.204728.8.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.8"><img src="https://img.alicdn.com/imgextra/i2/3528491912/TB2jbTgobuWBuNjSszgXXb8jVXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/ar_SA/?spm=a2700.shop_index.204728.9.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.9"><img src="https://img.alicdn.com/imgextra/i3/3528491912/TB2n1iWokKWBuNjy1zjXXcOypXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/th_TH/?spm=a2700.shop_index.204728.10.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.10"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2ZfGnf5OYBuNjSsD4XXbSkFXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/vi_VN/?spm=a2700.shop_index.204728.11.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.11"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2hEOff3KTBuNkSne1XXaJoXXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/tr_TR/?spm=a2700.shop_index.204728.12.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.12"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2CyeIf_XYBeNkHFrdXXciuVXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/nl_NL/?spm=a2700.shop_index.204728.13.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.13"><img src="https://img.alicdn.com/imgextra/i2/3528491912/TB2pbHjoaSWBuNjSsrbXXa0mVXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/in_ID/?spm=a2700.shop_index.204728.14.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.14"><img src="https://img.alicdn.com/imgextra/i4/3528491912/O1CN01t1QxIT1Pzk3Z2Doaq_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/iw_IL/?spm=a2700.shop_index.204728.15.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.15"><img src="https://img.alicdn.com/imgextra/i2/3528491912/TB2HtHKob1YBuNjSszhXXcUsFXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div><div class="yu_tp" style="width: 66px; height: 77px; margin-left: 8px; margin-top: 42px;"><a href="//fobwerks.en.alibaba.com/hi_IN/?spm=a2700.shop_index.204728.16.4abb69f0uU3riv" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.204728.16"><img src="https://img.alicdn.com/imgextra/i2/3528491912/TB2cTPToeuSBuNjy1XcXXcYjFXa_!!3528491912.png" style="width: 66px; height: 77px;"></a></div></div></td>
+      </tr>
+      <!-- 2.产品画廊 -->
+      <!-- 产品画廊CSS:移入左右弹跳动画效果 -->
+      <style>
+        /* 左右弹跳:0%左移5px-33%原位-66%左移2px-100%原位 */
+        @keyframes jumpLeft{
+          0%{
+            transform: translateX(-5px);
+          }
+          33%{
+            transform: translateX(0px);
+          }
+          66%{
+            transform: translateX(-2px);
+            
+          }
+          100%{
+            transform: translateX(0px);
+
+          }
+        }
+        /* 图片调用动画:移入弹跳 */
+        .gallery:hover{
+          animation:jumpLeft 1s linear
+        }
+      </style>
+      <tr>
+        <td><div class="yu_bb" style="margin-top: 100;position: relative;width: 1200;height: 460;"><div class="yu_xzztp">
+          <!-- (1)产品框1 -->
+          <div class="gallery yu_xzzxbb" style="position:absolute;width: 300;height: 300;top:0;left:0;margin-top: 2px;"><a href="#" target="_blank"><img width="299" height="299" src="https://sc04.alicdn.com/kf/H52687066ed364b6cb1a29717a1f764aft/84306-0K050-Sensor-For-Toyota-Hilux-Innova.jpg_350x350.jpg"  ></a></div><a href="#" target="_blank"><div class="yu_xzzstp" style="margin-top: 2px;position:absolute;width: 160;height: 160;left:140;bottom:0"><div class="yu_xzzstp_tp">
+            <!-- BEST SALE 红图-->
+            <img class="gallery"  width="159" height="157" style="margin-top: 2px;" src="https://img.alicdn.com/imgextra/i1/3528491912/TB2IEV3pXGWBuNjy0FbXXb4sXXa_!!3528491912.jpg">
+              <!-- BEST SALE文字  -->
+              <span style="font-size: 18;z-index: 8;display: inline-block;position: absolute;left:36;top:60">BEST SALE</span></div><div class="yu_xzzstpwz"></div></div></a></div><div class="yu_xzjtp" style="margin-top: 0px;"><a href="" target="_blank"><div class="yu_xzjxtp" style="position:absolute;width: 300;height: 160;top:0;left:300;"><div class="yu_xzjxtp_tp">
+                <!-- QUALITY ASSURANCE红图&文字 -->
+                <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ycd.pbuWBuNjSszgXXb8jVXa_!!3528491912.jpg"><span style="font-size: 18;position: absolute;top:60;left:60">QUALITY ASSURANCE</span></div><div class="yu_xzjxtpwz" >
+                </div></div></a>
+                <!-- 产品框2 -->
+                <div class="gallery yu_xzjsbb" style="position:absolute;width: 300;height: 300;bottom: 0;left:300;margin-top: 2px;"><a href="#" target="_blank" ><img height="299" width="299" src="//sc04.alicdn.com/kf/H3f9a6a648c0d47f88cd53032ccb96c85a/1825899C93-Camshaft-Position-Sensor-For-Ford-Cam.jpg_350x350.jpg"></a></div></div><div class="yu_xztp">
+                  <!-- 产品框3 -->
+                  
+                  <div class="gallery yu_xzxbb" style="position:absolute;width: 300;height: 300;top:0;left:600;margin-top: 2px;"><a href="#" target="_blank"><img width="299" height="299" src="//sc04.alicdn.com/kf/H7d3a5f79af7c42c18bad9783d57d3faeM/28163171-96476979-96476983-55561655-55570160-Ignition-Coil.jpg_350x350.jpg"></a></div><a target="_blank"><div class="yu_xzstp" style="margin-top: 2px;"><img src="//sc02.alicdn.com/kf/H01941f37721f4746b77229a24f28f098L.png"></div></a></div><div class="yu_xzztp1"><a target="_blank"><div class="yu_xzzstp1" style="position:absolute;width: 160;height: 160;top:0;left:900; margin-top: 2px;"><div class="yu_xzzstp1_tp">
+                    <!-- GOOD SERVICE红图&文字 -->
+                    <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ZMR9paSWBuNjSsrbXXa0mVXa_!!3528491912.jpg"></div><div class="yu_xzzstpwz1"><span style="font-size: 18;position: absolute;top:60;left:6">GOOD SERVICE</span></div></div></a>
+                    
+                    <!-- 产品框4 -->
+                  <div   class="gallery yu_xzzxbb1" style="position:absolute;width: 300;height: 300;right:0;bottom:0;"><a href="#" target="_blank" data-spm-anchor-id="a2700.shop_index.207672.5"><img  width="299" height="299"  src="//sc04.alicdn.com/kf/Hab2974ad99f94619bb2e74a6815f7480S/Factory-Price-Auto-Engine-Gasoline-Fuel-Filter.jpg_350x350.jpg"></a></div></div></div></td>
+      </tr>
+      <tr>
+        <td style="margin-top: 100;display: flex;flex-direction: column;border: 1px solid red;background-color: #000;border-top:none;border-bottom:none;height: 994px;">
+          <!-- 顶部分割线:红色 -->
+          <hr style='background-color:red; height:1px; border:none;width: 1100;margin-top: 0;'>
+          <!-- our advantages文字 -->
+          <div style="margin-top: 0;"><img src="/static/img/our_advantages.png" alt=""></div>
+          <div >
+            <center>
+            <!-- 视频:poster:视频封面 -->
+            <video src="/static/vid/environment.mp4" poster="/static/img/video_poster.png"  width="1100" height="630" muted controls ></video></center>
+          </div>
+          <div></div>
+          <div></div>
+
+        </td>
+        
+      </tr>
+      <tr>
+        <!-- 奖杯手书图标&字 -->
+        <td ><center><div style="margin-top: 100;display: flex;flex-direction: row; background-color: #000; height: 360;width: 1100;" class="yu_topcss"><div  class="yu_tp"><a href="about:blank?spm=a2700.shop_index.138788.1.4abb69f0Vqjqeg" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.138788.1"><div class="yu_stp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2QSVlpH1YBuNjSszeXXablFXa_!!3528491912.png"></div><div class="yu_wz" style="display: block;"><span style="color: rgb(255, 255, 255);">Quality assurance</span></div><div class="yu_ztp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2vi2OhlyWBuNkSmFPXXXguVXa_!!3528491912.png"></div><div class="yu_xwz" style="display: block;"><span style="color: rgb(255, 255, 255);" data-spm-anchor-id="a2700.shop_index.138788.i0.4abb69f0Vqjqeg">We have good quality. Wemust be quality  first and strictly control quality.</span></div></a></div><div class="yu_tp"><a href="about:blank?spm=a2700.shop_index.138788.2.4abb69f0Vqjqeg" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.138788.2"><div class="yu_stp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i3/3528491912/TB2S2p2pHSYBuNjSspfXXcZCpXa_!!3528491912.png"></div><div class="yu_wz" style="display: block;"><span style="color: rgb(255, 255, 255);">Professional service</span></div><div class="yu_ztp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2vi2OhlyWBuNkSmFPXXXguVXa_!!3528491912.png"></div><div class="yu_xwz" style="display: block;"><span style="color: rgb(255, 255, 255);">Professional c ustomer service team.  Let you worry  free after sale.</span></div></a></div><div class="yu_tp"><a href="about:blank?spm=a2700.shop_index.138788.3.4abb69f0Vqjqeg" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.138788.3"><div class="yu_stp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i3/3528491912/TB2Dj41pUR1BeNjy0FmXXb0wVXa_!!3528491912.png"></div><div class="yu_wz" style="display: block;"><span style="color: rgb(255, 255, 255);">Competitive Price</span></div><div class="yu_ztp" style="display: block;"><img src="https://img.alicdn.com/imgextra/i1/3528491912/TB2vi2OhlyWBuNkSmFPXXXguVXa_!!3528491912.png"></div><div class="yu_xwz" style="display: block;"><span style="color: rgb(255, 255, 255);">Our products are more cost-effective and have better competitiveness compared with other merchants</span></div></a></div></div></center></td>
+      </tr>
+    </table>
+  </div>
     <!-- 防止vue和django冲突 -->
     {% verbatim myblock %}
   <!-- vue容器 -->
