@@ -4,13 +4,14 @@ fob_website/
 新建文件夹 (2)/
 福步官网(2)/
 home_pythonX/
-#禁止跟踪.lnk .exe .xls .xlsx
+#禁止跟踪.lnk .exe .xls .xlsx **多级目录
 *.lnk
 *.exe
 *.xls
 *.xlsx
 *.docx
 *.doc
+**/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

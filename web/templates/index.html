@@ -457,7 +457,7 @@ ul,li {
                     // 拉动第一张图0->-1900
                     img1.css('animation','scrollPic 2s ')
                     // 展现第1张图时隐藏圆点2
-                    console.log('展现图1隐藏圆点2显示圆点1')
+                    // console.log('展现图1隐藏圆点2显示圆点1')
                     $('#dot1').css('display','block')
                     $('#dot2').css('display','none')
                   }
@@ -469,14 +469,14 @@ ul,li {
                     $('#dot1').css('display','none')
                     $('#dot2').css('display','block')
                   }
-                  console.log('图1:',img1.css('marginLeft'))
-                  console.log('图2:',img2.css('marginLeft'))
-                  console.log('图3:',img3.css('marginLeft'))
+                  // console.log('图1:',img1.css('marginLeft'))
+                  // console.log('图2:',img2.css('marginLeft'))
+                  // console.log('图3:',img3.css('marginLeft'))
                   i-=1;
                   if(i==-1*3){
                     i=0
                     // 展现第1张图时隐藏圆点2
-                    console.log('展现图1隐藏圆点2显示圆点1')
+                    // console.log('展现图1隐藏圆点2显示圆点1')
                     $('#dot1').css('display','block')
                     $('#dot2').css('display','none')
                   }
@@ -628,7 +628,7 @@ ul,li {
 
           }
         </style>
-        <td ><div class="container-fluid" style="background-color: #000"><center>
+        <td ><div class="container" style="width: 1200;;background-color: #000"><center>
           <!-- 背景盒子 -->
           <div style="margin-top: 100;display: flex;flex-direction: row; background-color: #000; height: 360;width: 1100;" class="yu_topcss">
           <div  class="yu_tp" style="width: 360;height:395;">
@@ -683,13 +683,19 @@ ul,li {
           .yu_bbjg span{
             /* text-overflow:clip;
             height: 44px; */
-            position: absolute;
+            /* position: absolute; */
             /* left: 50%;
             right: 50%; */
+            /* font-size: 20px; */
+            /* text-align: center; */
+            /* color: lightgray; */
+           
+          }
+          .pcv_valve_title{
+            position: absolute;
             font-size: 20px;
             text-align: center;
             color: lightgray;
-           
           }
           /* 价格红方块盒子 */
           .yu_bbdd{
@@ -697,29 +703,232 @@ ul,li {
           }
           /* 价格盒子 */
           .pcv_valve .yu_bbhoverbbbt{
-            color: #ffffff;
+            /* color: #ffffff;
             position: absolute;
-            top: 0;
+            top: 0; */
           
           }
           /* 价格 */
           .yu_bbdd>span{
             position: relative;
-            bottom:25px;
+            bottom:27px;
             left: 30%;
             color: white;
 
           }
+          /* 起订量(默认隐藏) */
+          .min_order{
+              z-index: 8;
+              position: absolute;
+              top:50%;
+              left:20%;
+              color:white
+              /* display: none; */
+            }
+            /* 起订量幕布(红色)(默认隐藏) */
+            .red_curtain{
+              top:0;
+              background-color: red;
+              opacity: 0;
+              /* display: none; */
+              
+          }
+          /* 淡入动画:从透明度0到50透明度(目标透明度) */
+          @keyframes fadein{
+            from{
+              opacity: 0;
+            }
+            to{
+              opacity: 0.5;
+            }
+          }
+          /* 淡出动画:从透明度50到0透明度(目标透明度) */
+          @keyframes fadeout{
+            from{
+              opacity: 0.5;
+            }
+            to{
+              opacity: 0;
+            }
+          }
+
          </style>
-        <td><div class="pcv_valve yu_bbxx" style="display: flex;">
-          <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
-            <div class="yu_xbb" style="width: 224px;"><div class="yu_xtp" style="width: 224px; height: 224px;">
-              <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;">
-                <a href="#" target="_blank" rel="noopener noreferrer" ><div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img  src="//sc04.alicdn.com/kf/H0e55ce4eb8474821a53f606c2f5fda65k/PCV-Valve-12204-15030-for-Nissan-CHEVROLET.jpg_350x350.jpg" data-spm-anchor-id="a2700.shop_index.88787.i3.4abb69f0mJVzyB"></div><div class="yu_bbhover" style="width: 224px; height: 112px; margin-top: 112px;"><div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;"><span>MIN.ORDER:500</span></div></div></a></div></div><div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);"><div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span>PCV Valve 12204-15030 for Nissan CHEVROLET NOVA GEO HONDA ACCORD MITSUBISHI MIRAGE NISSAN SENTRA 200SX</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;">
-                  <div class="yu_bbdd"   style="display: block; "><span>&nbsp;&nbsp;&nbsp;$0.35</span></div></div></div></div></div><div class="yu_bbzt" style="width: 224px; margin-right: 20px;"><div class="yu_xbb" style="width: 224px;"><div class="yu_xtp" style="width: 224px; height: 224px;"><div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;"><a href="/product/1600731923607-924053358/11810_6N202_11810_EA200_PCV_Valve_Positive_Crankcase_Ventilation_For_Nissan_Infiniti.html?spm=a2700.shop_index.88787.2.4abb69f0mJVzyB" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.2"><div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img src="//sc04.alicdn.com/kf/Hd4b228864167472399cece05cab692f26/11810-6N202-11810-EA200-PCV-Valve-Positive.png_350x350.png"></div><div class="yu_bbhover" style="width: 224px; height: 112px; margin-top: 112px;"><div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;"><span>MIN.ORDER:200</span></div></div></a></div></div><div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
-                    <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span>11810-6N202 11810-EA200 PCV Valve Positive Crankcase Ventilation For Nissan Infiniti</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;">
-                    <div class="yu_bbdd" style="display: block;"><span>$0.38 - $0.42</span></div></div></div></div></div><div class="yu_bbzt" style="width: 224px; margin-right: 20px;"><div class="yu_xbb" style="width: 224px;"><div class="yu_xtp" style="width: 224px; height: 224px;"><div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;"><a href="/product/1600708602198-924053358/High_Quality_PCV_Valve_Positive_Crankcase_Ventilation_PCV_Valve_G23ZY.html?spm=a2700.shop_index.88787.3.4abb69f0mJVzyB" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.3"><div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img src="//sc04.alicdn.com/kf/Hbfbafced7ebb4a598a165a2f45d21263e/High-Quality-PCV-Valve-Positive-Crankcase-Ventilation.jpg_350x350.jpg"></div><div class="yu_bbhover" style="width: 224px; height: 112px; margin-top: 112px;"><div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;"><span>MIN.ORDER:1000</span></div></div></a></div></div><div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);"><div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span>High Quality PCV Valve Positive Crankcase Ventilation PCV Valve G23ZY</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;">
-                      <div class="yu_bbdd" style="display: block"><span >$0.40 - $0.43</span></div></div></div></div></div><div class="yu_bbzt" style="width: 224px; margin-right: 20px;"><div class="yu_xbb" style="width: 224px;"><div class="yu_xtp" style="width: 224px; height: 224px;"><div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;"><a href="/product/1600707693242-924053358/OEM_94582006_New_Positive_Crankcase_Ventilation_PCV_Valve_For_Daewoo.html?spm=a2700.shop_index.88787.4.4abb69f0mJVzyB" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.4"><div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img src="//sc04.alicdn.com/kf/Hd996102abd7a404ea50d3b9c04880746X/OEM-94582006-New-Positive-Crankcase-Ventilation-PCV.jpg_350x350.jpg"></div><div class="yu_bbhover" style="width: 224px; height: 112px; margin-top: 112px;"><div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;"><span>MIN.ORDER:1000</span></div></div></a></div></div><div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);"><div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span>OEM 94582006 New Positive Crankcase Ventilation PCV Valve For Daewoo</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;"><div class="yu_bbdd" style="display: block;"><span>$0.40 - $0.42</span></div></div></div></div></div><div class="yu_bbzt" style="width: 224px; margin-right: 20px;"><div class="yu_xbb" style="width: 224px;"><div class="yu_xtp" style="width: 224px; height: 224px;"><div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;"><a href="/product/1600707555974-924053358/OEM_55568437_New_Positive_Crankcase_Ventilation_PCV_Valve_For_Chevrolet_Cruze.html?spm=a2700.shop_index.88787.5.4abb69f0mJVzyB" target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.5"><div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img src="//sc04.alicdn.com/kf/H4e53cb9606ea421cb7b1a0e7c77328fbY/OEM-55568437-New-Positive-Crankcase-Ventilation-PCV.jpg_350x350.jpg"></div><div class="yu_bbhover" style="width: 224px; height: 112px; margin-top: 112px;"><div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;"><span>MIN.ORDER:1000</span></div></div></a></div></div><div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);"><div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span>OEM 55568437 New Positive Crankcase Ventilation PCV Valve For Chevrolet Cruze</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;"><div class="yu_bbdd" style="display: block;"><span>$0.69 - $0.72</span></div></div></div></div></div></div></td>
+      
+         <!-- pcv阀 -->
+        <td>
+          <div class="pcv_valve yu_bbxx" style="display: flex;">
+            <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
+              <div class="yu_xbb" style="width: 224px;">
+                <div class="yu_xtp" style="width: 224px; height: 224px;">
+                  <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;position: relative;">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img
+                          src="//sc04.alicdn.com/kf/H0e55ce4eb8474821a53f606c2f5fda65k/PCV-Valve-12204-15030-for-Nissan-CHEVROLET.jpg_350x350.jpg"
+                          data-spm-anchor-id="a2700.shop_index.88787.i3.4abb69f0mJVzyB"></div>
+                      <div class="yu_bbhover red_curtain" style="width: 224px; height: 112px; margin-top: 112px;position: absolute;">
+                        <div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;">
+                          <!-- 起订量 -->
+                          <span class="min_order">MIN.ORDER:500</span></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
+                  <!-- 标题 -->
+                  <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span class="pcv_valve_title">PCV Valve 12204-15030 for
+                      Nissan CHEVROLET NOVA GEO HONDA ACCORD MITSUBISHI MIRAGE NISSAN SENTRA 200SX</span></div>
+                  <div class="yu_dztp" style="display: block; margin-left: 0px;"><img
+                      src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png"
+                      style="display: block;">
+                    <div class="yu_bbdd" style="display: block; ">
+                      <!-- 价格 -->
+                      <span>&nbsp;&nbsp;&nbsp;&nbsp;$0.35</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
+              <div class="yu_xbb" style="width: 224px;">
+                <div class="yu_xtp" style="width: 224px; height: 224px;">
+                  <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;;position: relative;"><a
+                      href="/product/1600731923607-924053358/11810_6N202_11810_EA200_PCV_Valve_Positive_Crankcase_Ventilation_For_Nissan_Infiniti.html?spm=a2700.shop_index.88787.2.4abb69f0mJVzyB"
+                      target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.2">
+                      <div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img
+                          src="//sc04.alicdn.com/kf/Hd4b228864167472399cece05cab692f26/11810-6N202-11810-EA200-PCV-Valve-Positive.png_350x350.png">
+                      </div>
+                      <div class="yu_bbhover red_curtain" style="width: 224px; height: 112px; margin-top: 112px;;position: absolute;">
+                        <div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;">
+                          <!-- 起订量 -->
+                          <span class="min_order">MIN.ORDER:200</span></div>
+                      </div>
+                    </a></div>
+                </div>
+                <div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
+                  <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;">
+                    <!-- 标题 -->
+                    <span class="pcv_valve_title">11810-6N202 11810-EA200 PCV Valve Positive Crankcase Ventilation For Nissan Infiniti</span>
+                  </div>
+                  <div class="yu_dztp" style="display: block; margin-left: 0px;"><img
+                      src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png"
+                      style="display: block;">
+                    <div class="yu_bbdd" style="display: block;">
+                      <!-- 价格 -->
+                      <span>$0.38 - $0.42</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
+              <div class="yu_xbb" style="width: 224px;">
+                <div class="yu_xtp" style="width: 224px; height: 224px;">
+                  <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;;position: relative;"><a
+                      href="/product/1600708602198-924053358/High_Quality_PCV_Valve_Positive_Crankcase_Ventilation_PCV_Valve_G23ZY.html?spm=a2700.shop_index.88787.3.4abb69f0mJVzyB"
+                      target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.3">
+                      <div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img
+                          src="//sc04.alicdn.com/kf/Hbfbafced7ebb4a598a165a2f45d21263e/High-Quality-PCV-Valve-Positive-Crankcase-Ventilation.jpg_350x350.jpg">
+                      </div>
+                      <div class="yu_bbhover red_curtain" style="width: 224px; height: 112px; margin-top: 112px;;position: absolute;">
+                        <div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;">
+                          <!-- 起订量 -->
+                          <span  class="min_order">MIN.ORDER:1000</span></div>
+                      </div>
+                    </a></div>
+                </div>
+                <div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
+                  <!-- 标题 -->
+                  <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span class="pcv_valve_title">High Quality PCV Valve
+                      Positive Crankcase Ventilation PCV Valve G23ZY</span></div>
+                  <div class="yu_dztp" style="display: block; margin-left: 0px;"><img
+                      src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png"
+                      style="display: block;">
+                    <div class="yu_bbdd" style="display: block">
+                      <!-- 价格 -->
+                      <span >$0.40 - $0.43</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
+              <div class="yu_xbb" style="width: 224px;">
+                <div class="yu_xtp" style="width: 224px; height: 224px;">
+                  <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;;position: relative;"><a
+                      href="/product/1600707693242-924053358/OEM_94582006_New_Positive_Crankcase_Ventilation_PCV_Valve_For_Daewoo.html?spm=a2700.shop_index.88787.4.4abb69f0mJVzyB"
+                      target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.4">
+                      <div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img
+                          src="//sc04.alicdn.com/kf/Hd996102abd7a404ea50d3b9c04880746X/OEM-94582006-New-Positive-Crankcase-Ventilation-PCV.jpg_350x350.jpg">
+                      </div>
+                      <div class="yu_bbhover red_curtain" style="width: 224px; height: 112px; margin-top: 112px;;position: absolute;">
+                        <div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;">
+                           <!-- 起订量 -->
+                          <span class="min_order">MIN.ORDER:1000</span></div>
+                      </div>
+                    </a></div>
+                </div>
+                <div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
+        
+                  <!-- 标题 -->
+                  <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span class="pcv_valve_title">OEM 94582006 New Positive
+                      Crankcase Ventilation PCV Valve For Daewoo</span></div>
+                  <div class="yu_dztp" style="display: block; margin-left: 0px;"><img
+                      src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png"
+                      style="display: block;">
+                    <div class="yu_bbdd" style="display: block;"><span>$0.40 - $0.42</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="yu_bbzt" style="width: 224px; margin-right: 20px;">
+              <div class="yu_xbb" style="width: 224px;">
+                <div class="yu_xtp" style="width: 224px; height: 224px;">
+                  <div class="yu_bbtp" style="width: 224px; height: 224px; margin-left: 0px; margin-top: 0px;;position: relative;"><a
+                      href="/product/1600707555974-924053358/OEM_55568437_New_Positive_Crankcase_Ventilation_PCV_Valve_For_Chevrolet_Cruze.html?spm=a2700.shop_index.88787.5.4abb69f0mJVzyB"
+                      target="_blank" rel="noopener noreferrer" data-spm-anchor-id="a2700.shop_index.88787.5">
+                      <div class="yu_bbtp_tp" style="width: 224px; height: 224px;"><img
+                          src="//sc04.alicdn.com/kf/H4e53cb9606ea421cb7b1a0e7c77328fbY/OEM-55568437-New-Positive-Crankcase-Ventilation-PCV.jpg_350x350.jpg">
+                      </div>
+                      <div class="yu_bbhover red_curtain" style="width: 224px; height: 112px; margin-top: 112px;;position: absolute;">
+                        <div class="yu_bbhoverbbbt" style="display: block; width: 224px; margin-top: 26px;">
+                           <!-- 起订量 -->
+                          <span class="min_order">MIN.ORDER:1000</span></div>
+                      </div>
+                    </a></div>
+                </div>
+                <div class="yu_shadow" style="width: 224px; background: rgb(16, 16, 16);">
+                  <!-- 标题 -->
+        
+                  <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span class="pcv_valve_title">OEM 55568437 New Positive Crankcase Ventilation PCV Valve For Chevrolet Cruze</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;"><div class="yu_bbdd" style="display: block;"><span>$0.69 - $0.72</span></div></div></div></div></div></div>
+           <!-- 滤清器 -->
+           
+           <!-- 油滤器 -->
+              <!-- 移入显示幕布和最小起订量JS -->
+         <script>
+          // 产品图片的上层的上层盒子hover:两个函数修改CSS
+          $('.yu_bbtp').hover(
+            // 移入
+            function(){
+              // 修改幕布和最小起订量display属性使其显示 
+              // $('.min_order,.red_curtain').css('display','block')
+              // this.querySelector('.min_order,.red_curtain')
+              $(this).find('.red_curtain').css('animation','fadein 1s linear forwards')
+              // $(this).parent().children('.red_curtain').css('animation','fadein 1s linear forwards')
+              // $(this).parent().children('.red_curtain').css('display','block')
+            },
+            // 移出
+            function(){
+              // 修改幕布和最小起订量display属性使其隐藏
+              // $('.min_order,.red_curtain').css('display','none')
+              $(this).find('.red_curtain').css('animation','fadeout 1s linear forwards')
+              // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
+              // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
+              // $(this).parent().children('.red_curtain').css('display','none')
+              // $('this').next().css('display','none')
+
+          })
+         </script>
+        </td>
       </tr>
     </table>
   </div>
