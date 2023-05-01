@@ -421,9 +421,9 @@ ul,li {
                   <!-- 假的第三张 -->
                   <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img3">
                   <!-- 左箭头 -->
-                  <div class=" arrow leftArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 369;"><img class="arrow leftArrow" style="display: none;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
+                  <div class=" arrow leftArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 369;"><img class="arrow leftArrow" style="opacity: 0;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
                   <!-- 右箭头 -->
-                  <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 394;"><img style="display: none;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
+                  <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 394;"><img style="opacity: 0;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
                   <!-- 圆点:两个 -->
                   <div id="dot1" style="display:block;z-index: 7;left:49%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
                   <div id="dot2" style="display:block;z-index: 7;left:51%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
@@ -432,9 +432,14 @@ ul,li {
                 /*移入box时显示箭头*/
                 // jquery hover事件 hover(鼠标移入,鼠标移出)
                 $('#box').hover(function(){
-                  $('.arrow').css('display','block')
+                  // $('.arrow').css('display','block')
+                  $('.arrow').css('animation','fadein0to1 0.5s linear forwards')
+                  // 淡入
                 },function(){
-                  $('.arrow').css('display','none')
+                  // $('.arrow').css('display','none')
+                  // 淡出
+                  $('.arrow').css('animation','fadeout0to1 0.5s linear forwards')
+                  
                 })
               </script>
               <!-- 轮播图JS -->
@@ -742,10 +747,28 @@ ul,li {
               opacity: 0.5;
             }
           }
+          /* 淡入动画:从透明度0到100透明度(目标透明度) */
+          @keyframes fadein0to1{
+            from{
+              opacity: 0;
+            }
+            to{
+              opacity: 1;
+            }
+          }
           /* 淡出动画:从透明度50到0透明度(目标透明度) */
           @keyframes fadeout{
             from{
               opacity: 0.5;
+            }
+            to{
+              opacity: 0;
+            }
+          }
+          /* 淡出动画:从透明度100到0透明度(目标透明度) */
+          @keyframes fadeout0to1{
+            from{
+              opacity: 1;
             }
             to{
               opacity: 0;
