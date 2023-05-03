@@ -491,7 +491,7 @@ ul,li {
                     //拉动第一张图 -1900->-3800
                     img1.css('animation','scrollPic-1900to-3800 2s ')
                     // 展现第二张图时隐藏圆点1
-                    console.log('展现图2隐藏圆点1显示圆点2')
+                    // console.log('展现图2隐藏圆点1显示圆点2')
                     $('#dot1').css('display','none')
                     $('#dot2').css('display','block')
                   }
@@ -517,12 +517,12 @@ ul,li {
                 var img1=$('#img1')
                 // 展现第二张图时隐藏圆点1
                 if(img1.css('marginLeft')=='-1900px'){
-                  console.log('展现图2隐藏圆点1显示圆点2')
+                  // console.log('展现图2隐藏圆点1显示圆点2')
                   $('#dot1').css('display','none')
                   $('#dot2').css('display','block')
                 }else{
                   // 展现第1张图时隐藏圆点2
-                  console.log('展现图1隐藏圆点2显示圆点1')
+                  // console.log('展现图1隐藏圆点2显示圆点1')
                   $('#dot1').css('display','block')
                   $('#dot2').css('display','none')
                 }
@@ -1362,11 +1362,236 @@ ul,li {
           <!-- 红线框 -->
           <div>
             <img src="/static/img/blk_banner1.png" alt="">
+            <style>
+                /* 轮播图动画:向左平移图片:左边距0->-1900 */
+                @keyframes scrollPic0to-1096{
+                /* 从左边距0 */
+                from{margin-left: 0px;}
+                /* 到左边距-1900 */
+                to{margin-left: -1096px;}
+              }
+              /* 轮播图动画:向左平移图片:左边距-1900到-2192 */
+             @keyframes scrollPic-1096to-2192{
+              /* 从左边距0 */
+              from{margin-left: -1096px;}
+              /* 到左边距-1900 */
+              to{margin-left: -2192px;}
+             } 
+             /* 轮播图动画:向右平移图片:左边距-2192到-1096 */
+              @keyframes scrollPic-2192to-1096{
+                /* 从左边距0 */
+                from{margin-left: -2192px;}
+                /* 到左边距-1900 */
+                to{margin-left: -1096px;}
+              }
+             /* 轮播图动画:向右平移图片:左边距-1096到0 */
+              @keyframes scrollPic-1096to0{
+                /* 从左边距0 */
+                from{margin-left: -1096px;}
+                /* 到左边距-1900 */
+                to{margin-left: 0px;}
+              }
+            </style>
             <!-- 主框:工厂照片&about us&营业执照轮播图 -->
             <div style="background-color: #000;padding: 34px;width:1200px;display: flex;flex-direction: column;border-right: solid 1px red; border-left:solid 1px red">
             <img src="/static/img/factory.png" alt="">
             <img src="/static/img/about_us.png" alt="">
-              <!-- 拍照 -->
+            <!-- 轮播图外框  -->
+            <div style="position: relative;width:1096px;height: 357px;display: flex;">
+              <!-- 执照轮播图:2张,左边左右红箭头可控制 下方小圆点可控制 -->
+              <div id="certificate" style="overflow: hidden;position: relative;width:1096px;height: 357px;display: flex;" >
+                <!-- <img id="certificate_pic0" style="margin-left: -1096;" src="/static/img/certificate2.png" alt=""> -->
+                <!-- 图1 -->
+                <img id="certificate_pic1" src="/static/img/certificate1.png" alt="">
+                <!-- 图2 -->
+                <img id="certificate_pic2" src="/static/img/certificate2.png" alt="">
+                <!-- 图3:假图实际图1 -->
+                <img id="certificate_pic3" src="/static/img/certificate1.png" alt="">
+                <!-- 小圆点*2:选中时为红色;否则半透明白色 -->
+                <button class="spot" style="border:none;left: 48%;width: 20px;height: 20px;position: absolute;bottom:20px;z-index: 8;border-radius:50%;background-color:#ffffff;opacity:0.5;cursor: pointer;"></button>
+                <button class="spot" style="border:none;left: 52%;width: 20px;height: 20px;position: absolute;bottom:20px;z-index: 8;border-radius:50%;background-color:#ffffff;opacity:0.5;cursor: pointer;"></button>
+              </div>
+              <!-- 左右箭头按钮 25px-->
+              <span class="red_arrow glyphicon glyphicon-chevron-left" style="cursor: pointer;text-align: center;line-height: 25px;display: inline-block;width: 25px;height: 25px;font-size: 20px;z-index: 8;position: absolute;left:-26px;top:295px;background-color: red;color: white;"  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="red_arrow glyphicon glyphicon-chevron-right" style="cursor: pointer;text-align: center;line-height: 25px;display: inline-block;width: 25px;height: 25px;font-size: 20px;z-index: 8;position: absolute;left:-26px;top:325px;background-color: red;color: white;"  class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </div>
+              <!-- 左右箭头拉动图片轮播图JS:通过首图左边距动画+最后一张假图+极限值直接设定边距 -->
+              <script>
+                // 激活小圆点样式函数:输入下标
+                function activate_spot(i){
+                  $('.spot').eq(i).css('backgroundColor','red')
+                  $('.spot').eq(i).css('opacity','1')
+                  if(i==0){
+                    //激活小园点1 失活小圆点2 
+                    $('.spot').eq(1).css('backgroundColor','white')
+                   $('.spot').eq(1).css('opacity','0.5')
+                  }
+                  else if(i==1){
+                    //激活小园点2 失活小圆点1
+                    $('.spot').eq(0).css('backgroundColor','white')
+                   $('.spot').eq(0).css('opacity','0.5')
+                  }
+                }
+                //0.入口函数:设圆点1为红色并且非透明
+                $(function(){
+                  $('.spot:eq(0)').css('backgroundColor','red')
+                  $('.spot:eq(0)').css('opacity','1')
+                })
+
+                // 一.左箭头点击事件0503:ok
+                $('.red_arrow:eq(0)').click(function(){
+                  // 获取左箭头
+                  var leftRedArrow= $('.red_arrow:eq(0)')
+                  // 获取图片1
+                  var certificate1=$('#certificate>img:eq(0)')
+                  var marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')-1096+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2192,-1096,0)
+                  // 当边距为0:0到-1096 
+                  if(marginLeft==0){
+                    console.log('左边距0')
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1096 1s forwards')
+                    // 激活对应小圆点:2
+                    activate_spot(1)
+                  }
+                  // 当边距为-1096:-1096到-2192 
+                 else if(marginLeft==-1096){
+                    console.log('左边距-1096')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-1096to-2192 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activate_spot(0)
+                  }
+                  //当边距为-2192:2192并回到0,并拉动0到-1096 
+                  else if(marginLeft==-2192){
+                    console.log('左边距-2192')
+                    certificate1.css('marginLeft','0')//回到0
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1096 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:2
+                    activate_spot(1)
+                    
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1096,-2192无动作')
+                  }
+                })
+                // 二.右箭头点击事件
+                $('.red_arrow:eq(1)').click(function(){
+                  // 获取右箭头
+                  var rightRedArrow= $('.red_arrow:eq(1)')
+                  // 获取图片1
+                  var certificate1=$('#certificate>img:eq(0)')
+                  var marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')+1096+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2192,-1096,0)
+                  // 当边距为0:切换到-2192 ,从-2192到-1096
+                  if(marginLeft==0){
+                    console.log('边距为0:切换到-2192 ,从-2192到-1096')
+                    certificate1.css('marginLeft','-2192')//切换到-2192
+                    // 用动画:从-2192到-1096
+                    certificate1.css('animation','scrollPic-2192to-1096 1s forwards')
+                    // 激活对应小圆点:2
+                    activate_spot(1)
+                  }
+                  // 当边距为-1096:-1096到0   
+                  else if(marginLeft==-1096){
+                    console.log('左边距-1096')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-1096to0 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activate_spot(0)
+                    
+                  }
+                  //当边距为-2192:2192并回到0,并拉动0到-1096 
+                  else if(marginLeft==-2192){
+                    console.log('左边距-2192')
+                    // 用动画:从-2192到-1096
+                    certificate1.css('animation','scrollPic-2192to-1096 1s forwards')                    
+                    // 激活对应小圆点:2
+                    activate_spot(1)
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1096,-2192无动作')
+                  }
+                })
+                // 三.左右小圆点拉动图片JS
+                  // 1.圆点1点击事件:变成红色,显示图1或者图3时无动作,图2时拉动图1左边距-1096到0,把圆点2变成白色半透明
+                  var spot1=$('.spot:eq(0)')//获取元素圆点1
+                  var spot2=$('.spot:eq(1)')//获取元素圆点2
+                  $('.spot:eq(0)').click(function(){
+                        // 把圆点1变成红色不透明
+                        spot1.css('backgroundColor','red');
+                        spot1.css('opacity','1')
+                        // 把圆点2变成白色半透明
+                        spot2.css('backgroundColor','white');
+                        spot2.css('opacity','0.5')
+                        // 判断边距
+                        // 获取图片1
+                        var certificate1=$('#certificate>img:eq(0)')
+                        //获取左边距
+                        var marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                        var newMarginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')-1096+'px'
+                        console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                        // 当边距为-1096:-1096到-2192 ;其他情况下无动作
+                        if(marginLeft==-1096){
+                          console.log('圆点1:左边距-1096')
+                          console.log('左边距-1096')
+                          // 用动画
+                          certificate1.css('animation','scrollPic-1096to0 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                        }
+                          //当边距为-2192:2192并回到0,并拉动0到-1096 
+                        else if(marginLeft==-2192){
+                          var certificate1=$('#certificate>img:eq(0)')
+                          console.log('左边距-2192回到0')
+                          certificate1.css('marginLeft','0px')//回到0
+
+                          
+                        }
+                       }
+                      
+                      )
+                      // 2.圆点2点击事件
+                      $('.spot:eq(1)').click(function(){
+                        
+                        // 把圆点2变成红色不透明
+                        spot2.css('backgroundColor','red');
+                        spot2.css('opacity','1')
+                        // 把圆点1变成白色半透明
+                        spot1.css('backgroundColor','white');
+                        spot1.css('opacity','0.5')
+                        // 获取图片1
+                        var certificate1=$('#certificate>img:eq(0)')
+                        //获取左边距
+                        var marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                        var newMarginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')-1096+'px'
+                        console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                        // 当边距为-1096:-1096到-2192;其他情况无动作
+                        if(marginLeft==-1096||marginLeft==0){
+                            console.log('圆点2:左边距-1096或者0:设边距为0')
+                            certificate1.css('marginLeft','0px')//设为0
+                            // 用动画
+                            certificate1.css('animation','scrollPic0to-1096 1s forwards')
+                    
+                        }
+                  })
+                
+
+              </script>
+              
             </div>
           </div>
         </td>
