@@ -17,7 +17,19 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
  
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+ $(function(){
+   // 页面居中:在小窗口浏览器中右滚
+   var windowWidth=window.innerWidth
+   console.log('页面宽度',windowWidth)
+   if(windowWidth<=1280){
+    // 往右边滚动窗口
+    window.scrollTo(330,0)
 
+   }
+ })
+
+</script>
 
   
     <!-- 网页图标 -->
@@ -170,7 +182,37 @@ ul,li {
 }
 
     </style>
-
+    <!-- 轮播图CSS动画 -->
+     <style>
+      /* 轮播图动画:向左平移图片:左边距0->-1900 */
+      @keyframes scrollPic0to-100{
+      /* 从左边距0 */
+      from{margin-left: 0;}
+      /* 到左边距-1900 */
+      to{margin-left: -1900px;}
+    }
+    /* 轮播图动画:向左平移图片:左边距-1900到-2192 */
+   @keyframes scrollPic-100to-200{
+    /* 从左边距0 */
+    from{margin-left: -1900px;}
+    /* 到左边距-1900 */
+    to{margin-left: -3800px;}
+   } 
+   /* 轮播图动画:向右平移图片:左边距-2192到-1096 */
+    @keyframes scrollPic-200to-100{
+      /* 从左边距0 */
+      from{margin-left: -3800px;}
+      /* 到左边距-1900 */
+      to{margin-left: -1900px;}
+    }
+   /* 轮播图动画:向右平移图片:左边距-1096到0 */
+    @keyframes scrollPic-100to0{
+      /* 从左边距0 */
+      from{margin-left: -1900px;}
+      /* 到左边距-1900 */
+      to{margin-left: 0;}
+    }
+  </style>
     
     <!-- 标题 -->
     <title>Fob Autoparts</title>
@@ -178,7 +220,7 @@ ul,li {
   <body >
   
     <!-- 顶部背景图 -->
-    <div style='position:relative; width: 100% ;height: 200px;background-size: 100%;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
+    <div style='position:relative; width: 1900px ;height: 200px;background-size: 100%;background-image: url("https://img.alicdn.com/imgextra/i1/O1CN01REbO5M1iNFNVX2yeq_!!6000000004400-2-tps-1920-200.png");'>
       <!-- 顶部  -->
     
       <table style="position: absolute;left: 347px;z-index: 0;">
@@ -343,7 +385,7 @@ ul,li {
     
   <!-- 下拉菜单 -->
     <!-- 1级菜单:图层1 -->
-    <ul class="ul1" style="position:relative;" >     
+    <ul class="ul1" style="position:relative;width:2500px" >     
       <li class="li1" style="background-color:#a7bed5;"  id='one'><a style="text-decoration: none;color:#ffffff;" href="">Home</a></li>
       <!-- 菜单项products 箭头(旋转) -->
       <!-- 旋转180度带动画CSS -->
@@ -389,7 +431,7 @@ ul,li {
     </ul>
     <!-- 大盒子:背景图  :background-size: 1900px 726px;-->
     <!-- <div class="container-fluid" style="background-size: 1900px ;background-image: url('/static/img/背景图.jpg');"> -->
-    <div  style="margin-left: 0;margin-right: 0;width:100%;background-image: url('/static/img/背景图.jpg');">
+    <div  style="margin-left: 0;margin-right: 0;width:1900;background-image: url('/static/img/背景图.jpg');">
       <table style="width:100%;">
         <tr style="width:100%;">
           <td style="width:100%;">
@@ -407,8 +449,8 @@ ul,li {
                 /* 轮播图图片 */
                 .scrollPic{
                   float:left;
-                  width:  100%;
-                /* width:  1900px; */
+                  /* width:  100%; */
+                width:  1900px;
                  height: 726px;
                  
               }
@@ -417,36 +459,37 @@ ul,li {
                 /* 从左边距0 */
                 from{margin-left: 0px;}
                 /* 到左边距-1900 */
-                to{margin-left: -100%;}
+                to{margin-left: -1900px;}
               }
               /* 轮播图动画:向左平移图片:左边距-1900到-3800 */
              @keyframes scrollPic-1900to-3800{
               /* 从左边距0 */
-              from{margin-left: -100%;}
+              /* from{margin-left: -100%;} */
+              from{margin-left: -1900px;}
               /* 到左边距-1900 */
-              to{margin-left: -200%;}
+              to{margin-left: -3800px;}
              } 
              /* 轮播图动画:向右平移图片:左边距0<--1900:用于圆点点击 */
               @keyframes scrollPic0to100{
                 /* 从左边距0 */
                 from{margin-left: 0px;}
                 /* 到左边距-1900 */
-                to{margin-left: 100%;}
+                to{margin-left: 1900px;}
               }
 
 
             </style>
       
           
-              <div id="box" style="position: relative;display:flex">
-                  <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img1">
-                  <img class="scrollPic" src="/static/img/轮播图2.jpg" alt="" id="img2">
+              <div id="box" style="position: relative;display:flex;overflow: hidden;width: 1900px;">
+                  <img style="width:1900px" class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img1">
+                  <img style="width:1900px"  class="scrollPic" src="/static/img/轮播图2.jpg" alt="" id="img2">
                   <!-- 假的第三张 -->
-                  <img class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img3">
+                  <img style="width:1900px"  class="scrollPic" src="/static/img/轮播图1.jpg" alt="" id="img3">
                   <!-- 左箭头 -->
-                  <div class=" arrow leftArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 10%;"><img class="arrow leftArrow" style="opacity: 0;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
+                  <div class=" arrow leftArrow" style="cursor:pointer;display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 150px;"><img class="arrow leftArrow" style="opacity: 0;" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2nbyHogmTBuNjy1XbXXaMrVXa_!!3528491912.png" ></div>
                   <!-- 右箭头 -->
-                  <div class="arrow rightArrow" id="rightArrow" style="display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;right: 10%;"><img style="opacity: 0;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
+                  <div class="arrow rightArrow" id="rightArrow" style="cursor:pointer;display: none;width: 112;height: 112;position: absolute;display: block;z-index: 6;top:303;left: 1750px;"><img style="opacity: 0;" class="arrow rightArrow" src="https://img.alicdn.com/imgextra/i2/3528491912/TB2_YXjoDJYBeNjy1zeXXahzVXa_!!3528491912.png" ></div>
                   <!-- 圆点:两个 -->
                   <div id="dot1" style="display:block;z-index: 7;left:49%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
                   <div id="dot2" style="display:block;z-index: 7;left:51%;bottom: 20px;border-radius: 50%;position: absolute;display:inline-block;width: 20px;height: 20px;background-color: white;"></div>
@@ -467,6 +510,114 @@ ul,li {
               </script>
               <!-- 轮播图JS -->
              <script>
+               // 激活圆点样式函数:输入下标
+               function activate_dot(i){
+            
+                  if(i==0){
+                    //激活小园点1 失活小圆点2 
+                    $('#dot1').css('display','block')
+                    $('#dot2').css('display','none')
+                  }
+                  else if(i==1){
+                    //激活小园点2 失活小圆点1
+                    $('#dot1').css('display','none')
+                    $('#dot2').css('display','block')
+                  }
+                }
+                //0.入口函数:设圆点1为红色并且非透明
+                $(function(){
+                   //激活小园点1 失活小圆点2 
+                   activate_dot(0)
+                })
+
+                // 一.左箭头点击事件0503:ok
+                $('.arrow:eq(0)').click(function(){
+                  // 获取左箭头
+                  var leftRedArrow= $('.arrow:eq(0)')
+                  // 获取图片1
+                  var certificate1=$('.scrollPic:eq(0)')
+                  var marginLeft=$('.scrollPic:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('.scrollPic:eq(0)').css('marginLeft').replace('px','')-1900+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2192,-1096,0)
+                  // 当边距为0:0到-1096 
+                  if(marginLeft==0){
+                    console.log('左边距0')
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-100 1s forwards')
+                    // 激活对应小圆点:2
+                    activate_dot(1)
+                  }
+                  // 当边距为-1096:-1096到-2192 
+                 else if(marginLeft==-1900){
+                    console.log('左边距-1900')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-100to-200 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activate_dot(0)
+                  }
+                  //当边距为-2192:2192并回到0,并拉动0到-1096 
+                  else if(marginLeft==-3800){
+                    console.log('左边距-2192')
+                    certificate1.css('marginLeft','0')//回到0
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-100 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:2
+                    activate_dot(1)
+                    
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1900,-3800')
+                  }
+                })
+                // 二.右箭头点击事件
+                $('#rightArrow').click(function(){
+                  // 获取右箭头
+                  var rightRedArrow= $('#rightArrow')
+                  // 获取图片1
+                  var certificate1=$('.scrollPic:eq(0)')
+                  var marginLeft=$('.scrollPic:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('.scrollPic:eq(0)').css('marginLeft').replace('px','')+1900+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2192,-1096,0)
+                  // 当边距为0:切换到-2192 ,从-2192到-1096
+                  if(marginLeft==0){
+                    console.log('边距为0:切换到-3800 ,从-3800到-1900')
+                    certificate1.css('marginLeft','-3800')//切换到-2192
+                    // 用动画:从-2192到-1096
+                    certificate1.css('animation','scrollPic-200to-100 1s forwards')
+                    // 激活对应小圆点:2
+                    activate_dot(1)
+                  }
+                  // 当边距为-1096:-1096到0   
+                  else if(marginLeft==-1900){
+                    console.log('左边距-1900')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-100to0 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#certificate img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activate_dot(0)
+                    
+                  }
+                  //当边距为-3800:-3800到-1900
+                  else if(marginLeft==-3800){
+                    console.log('左边距-2192')
+                    // 用动画:从-2192到-1096
+                    certificate1.css('animation','scrollPic-200to-100 1s forwards')                    
+                    // 激活对应小圆点:2
+                    activate_dot(1)
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1096,-2192无动作')
+                  }
+                })
               /*
               原理:拉动第一张图0->-1900->-3800-.自动带动后面的图左边距到达-3800时回到原点0,配合两个动画实现
               三张图片:2张轮播图,第三张为假图(实际第一张图)
@@ -477,9 +628,14 @@ ul,li {
               var img2=$('#img2')
               var img3=$('#img3')
               var i=0
+              var runLubo=true;//启动标记
               // setInterval(function(){
+                
                 setInterval("lubo()",2000);
                 function lubo(){
+                  if (runLubo==false){
+                   return '停止轮播图'
+                  }
                   // img1.css('marginLeft',i+'px')
                   if (i==0){
                     // 拉动第一张图0->-1900
@@ -577,6 +733,12 @@ ul,li {
         .gallery:hover{
           animation:jumpLeft 1s linear
         }
+        /* 产品文字:白色;内联块
+        .gallery_text{
+          animation:jumpLeft 1s linear;
+          display: inline-block;
+          color: #ffffff;
+        } */
       </style>
       
    
@@ -588,9 +750,9 @@ ul,li {
             <!-- BEST SALE 红图-->
             <img class="gallery"  width="159" height="157" style="margin-top: 2px;" src="https://img.alicdn.com/imgextra/i1/3528491912/TB2IEV3pXGWBuNjy0FbXXb4sXXa_!!3528491912.jpg">
               <!-- BEST SALE文字  -->
-              <span style="font-size: 18;z-index: 8;display: inline-block;position: absolute;left:36;top:60">BEST SALE</span></div><div class="yu_xzzstpwz"></div></div></a></div><div class="yu_xzjtp" style="margin-top: 0px;"><a href="" target="_blank"><div class="yu_xzjxtp" style="position:absolute;width: 300;height: 160;top:0;left:300;"><div class="yu_xzjxtp_tp">
+              <span class="gallery_text"  style="font-size: 18;z-index: 8;display: inline-block;position: absolute;left:36;top:60">BEST SALE</span></div><div class="yu_xzzstpwz"></div></div></a></div><div class="yu_xzjtp" style="margin-top: 0px;"><a href="" target="_blank"><div class="yu_xzjxtp" style="position:absolute;width: 300;height: 160;top:0;left:300;"><div class="yu_xzjxtp_tp">
                 <!-- QUALITY ASSURANCE红图&文字 -->
-                <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ycd.pbuWBuNjSszgXXb8jVXa_!!3528491912.jpg"><span style="font-size: 18;position: absolute;top:60;left:60">QUALITY ASSURANCE</span></div><div class="yu_xzjxtpwz" >
+                <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ycd.pbuWBuNjSszgXXb8jVXa_!!3528491912.jpg"><span  class="gallery_text"  style="font-size: 18;position: absolute;top:60;left:60">QUALITY ASSURANCE</span></div><div class="yu_xzjxtpwz" >
                 </div></div></a>
                 <!-- 产品框2 -->
                 <div class="gallery yu_xzjsbb" style="position:absolute;width: 300;height: 300;bottom: 0;left:300;margin-top: 2px;"><a href="#" target="_blank" ><img height="299" width="299" src="//sc04.alicdn.com/kf/H3f9a6a648c0d47f88cd53032ccb96c85a/1825899C93-Camshaft-Position-Sensor-For-Ford-Cam.jpg_350x350.jpg"></a></div></div><div class="yu_xztp">
@@ -598,12 +760,20 @@ ul,li {
                   
                   <div class="gallery yu_xzxbb" style="position:absolute;width: 300;height: 300;top:0;left:600;margin-top: 2px;"><a href="#" target="_blank"><img width="299" height="299" src="//sc04.alicdn.com/kf/H7d3a5f79af7c42c18bad9783d57d3faeM/28163171-96476979-96476983-55561655-55570160-Ignition-Coil.jpg_350x350.jpg"></a></div><a target="_blank"><div class="yu_xzstp" style="margin-top: 2px;"><img src="//sc02.alicdn.com/kf/H01941f37721f4746b77229a24f28f098L.png"></div></a></div><div class="yu_xzztp1"><a target="_blank"><div class="yu_xzzstp1" style="position:absolute;width: 160;height: 160;top:0;left:900; margin-top: 2px;"><div class="yu_xzzstp1_tp">
                     <!-- GOOD SERVICE红图&文字 -->
-                    <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ZMR9paSWBuNjSsrbXXa0mVXa_!!3528491912.jpg"></div><div class="yu_xzzstpwz1"><span style="font-size: 18;position: absolute;top:60;left:6">GOOD SERVICE</span></div></div></a>
+                    <img class="gallery" src="https://img.alicdn.com/imgextra/i4/3528491912/TB2ZMR9paSWBuNjSsrbXXa0mVXa_!!3528491912.jpg"></div><div class="yu_xzzstpwz1"><span  class="gallery_text"  style="font-size: 18;position: absolute;top:60;left:6">GOOD SERVICE</span></div></div></a>
                     
                     <!-- 产品框4 -->
                   <div   class="gallery yu_xzzxbb1" style="position:absolute;width: 300;height: 300;right:0;bottom:0;"><a href="#" target="_blank" data-spm-anchor-id="a2700.shop_index.207672.5"><img  width="299" height="299"  src="//sc04.alicdn.com/kf/Hab2974ad99f94619bb2e74a6815f7480S/Factory-Price-Auto-Engine-Gasoline-Fuel-Filter.jpg_350x350.jpg"></a></div></div></div></td>
+      <!-- 文字摇晃JS-->
+      <script>
+        $('.gallery').hover(function(){
+          $('.gallery_text').css('animation','jumpLeft 1s linear')
+          $('.gallery_text').css('color','white')
+        },function(){
+          console.log('摇晃文字')
+        })
+      </script>
       </tr>
-    
       <tr>
         <td style="width: 1200;margin-top: 100;display: flex;flex-direction: column;border: 1px solid red;background-color: #000;border-top:none;border-bottom:none;height: 994px;">
           <!-- 顶部分割线:红色 -->
