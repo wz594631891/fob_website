@@ -17,21 +17,79 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
  
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
- $(function(){
-   // 页面居中:在小窗口浏览器中右滚
-   var windowWidth=window.innerWidth
-   console.log('页面宽度',windowWidth)
-   if(windowWidth<=1280){
-    // 往右边滚动窗口
-    window.scrollTo(330,0)
 
-   }
- })
-
-</script>
-
-  
+<style>
+  /* 轮播图动画(营业执照):向左平移图片:左边距0->-1900 */
+  @keyframes scrollPic0to-1096{
+  /* 从左边距0 */
+  from{margin-left: 0px;}
+  /* 到左边距-1900 */
+  to{margin-left: -1096px;}
+}
+/* 轮播图动画:向左平移图片:左边距-1900到-2192 */
+@keyframes scrollPic-1096to-2192{
+/* 从左边距0 */
+from{margin-left: -1096px;}
+/* 到左边距-1900 */
+to{margin-left: -2192px;}
+} 
+/* 轮播图动画:向右平移图片:左边距-2192到-1096 */
+@keyframes scrollPic-2192to-1096{
+  /* 从左边距0 */
+  from{margin-left: -2192px;}
+  /* 到左边距-1900 */
+  to{margin-left: -1096px;}
+}
+/* 轮播图动画:向右平移图片:左边距-1096到0 */
+@keyframes scrollPic-1096to0{
+  /* 从左边距0 */
+  from{margin-left: -1096px;}
+  /* 到左边距-1900 */
+  to{margin-left: 0px;}
+}
+</style>
+    <!-- 瞬大动画(爱心;支持JS在页脚) -->
+    <style>
+      /* 定义动画 */
+      @keyframes bigSmall{
+        /* 变大1.5倍:transform:scale(倍数) */
+        from{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color:rgb(204,86,1);;vertical-align: middle;display:inline-block;font-size: 15;transform: scale(1.5);}
+        /* 回到原样 */
+        to{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(204,86,1);;;vertical-align: middle;display:inline-block;font-size: 15;}
+      }
+    </style>
+      <!-- 气泡框 -->
+            <!-- css -->
+            <style>        
+              .box {
+                width: 20%;
+                height: 300px;
+                /* margin-left: 0px;
+                margin-top: 0px; */
+                position: relative;
+                z-index: 7;
+                display:none
+            }
+            .triangle {
+                width: 0;
+                height: 0;
+                border:   solid 10px ;
+                border-color: transparent transparent  white;
+                /* border-top-color: #aeaeae; */
+                margin-left: 15px;
+                z-index: 7;
+                display:none
+            }
+            .cont {
+                width: 300px;
+                height: 170px;
+                background-color: white;
+                border-radius: 5px;
+                margin-top: 16;
+                z-index: 7;
+                display:none
+            }
+          </style>  
     <!-- 网页图标 -->
     <!-- <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" /> -->
     <!-- <link rel="shortcut icon" type="image/x-icon" href="https://g.csdnimg.cn/static/logo/favicon32.ico" media="screen" /> -->
@@ -308,54 +366,14 @@ ul,li {
               <div style="display: inline-block;"><img src="/static/img/check.png" height="13px" width="13px" alt="" ></div><div style="display: inline-block;"></div><div style="display: inline-block;font-size: 13px;color: black;"> Minor customization </div>
             </div>  
           </td>
-          <!-- 瞬大动画(爱心;支持JS在页脚) -->
-          <style>
-            /* 定义动画 */
-            @keyframes bigSmall{
-              /* 变大1.5倍:transform:scale(倍数) */
-              from{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color:rgb(204,86,1);;vertical-align: middle;display:inline-block;font-size: 15;transform: scale(1.5);}
-              /* 回到原样 */
-              to{cursor:pointer;-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(204,86,1);;;vertical-align: middle;display:inline-block;font-size: 15;}
-            }
-          </style>
+       
           <!-- 爱心&Follow 字体描边:-webkit-text-stroke: 0.5px white;(爱心);弹性布局;横向逆向排列;.glyphicon.glyphicon-heart:爱心 -->
           <td style="padding-right: 40px;;display: flex;width: 300;flex-direction: row-reverse;"><!-- 字体 --><span style="opacity: 0.8;cursor:pointer;display: inline-block;margin-top: 5px;">&nbspFollow</span><span id="love" style="-webkit-text-stroke: 0.5px white;margin-top: 5px;opacity: 0.5;color: rgb(125,146,163);;vertical-align: middle;display:inline-block;font-size: 15; " class="glyphicon glyphicon-heart" aria-hidden="true"></span></td>
            
         </tr>
         <tr>
           <td>      
-            <!-- 气泡框 -->
-            <!-- css -->
-            <style>        
-                .box {
-                  width: 20%;
-                  height: 300px;
-                  /* margin-left: 0px;
-                  margin-top: 0px; */
-                  position: relative;
-                  z-index: 7;
-                  display:none
-              }
-              .triangle {
-                  width: 0;
-                  height: 0;
-                  border:   solid 10px ;
-                  border-color: transparent transparent  white;
-                  /* border-top-color: #aeaeae; */
-                  margin-left: 15px;
-                  z-index: 7;
-                  display:none
-              }
-              .cont {
-                  width: 300px;
-                  height: 170px;
-                  background-color: white;
-                  border-radius: 5px;
-                  margin-top: 16;
-                  z-index: 7;
-                  display:none
-              }
-            </style> 
+          
                <!--气泡框  -->
               <div class="box" style="position: relative;top:-80;left: 350;display: flex;flex-direction: column;">
                 <!-- 三角形 -->
@@ -794,7 +812,7 @@ ul,li {
                   }
               </style>
             <!-- 视频:poster:视频封面 0501:添加白边添加CSS防止黑边 -->
-            <video src="/static/vid/environment.mp4" poster="/static/img/video_poster.png"  width="1100" height="630" muted controls style="border: #ffffff 7px solid;" ></video></center>
+            <video src="/static/vid/environment.mp4" poster="/static/img/video_poster.png"  width="1100" height="630" muted controls="controls" style="border: #ffffff 7px solid;" ></video></center>
           </div>
           
            
@@ -1447,31 +1465,6 @@ ul,li {
                           <div class="yu_bbjg" style="display: block; width: 224px; margin-bottom: 0px;"><span class="pcv_valve_title">Low MOQ Oil Filter 31726-3JX0A Transmission Oil Cooler Filter For Nissan</span></div><div class="yu_dztp" style="display: block; margin-left: 0px;"><img src="https://img.alicdn.com/imgextra/i4/3528491912/TB2kHy9o25TBuNjSspmXXaDRVXa_!!3528491912.png" style="display: block;"><div class="yu_bbdd" style="display: block;"><span>$1.40 - $1.60
                           </span></div></div></div></div></div></div>
                    
-                  <!-- 移入显示幕布和最小起订量JS -->
-                  <script>
-          // 产品图片的上层的上层盒子hover:两个函数修改CSS
-          $('.yu_bbtp').hover(
-            // 移入
-            function(){
-              // 修改幕布和最小起订量display属性使其显示 
-              // $('.min_order,.red_curtain').css('display','block')
-              // this.querySelector('.min_order,.red_curtain')
-              $(this).find('.red_curtain').css('animation','fadein 0.5s linear forwards')
-              // $(this).parent().children('.red_curtain').css('animation','fadein 1s linear forwards')
-              // $(this).parent().children('.red_curtain').css('display','block')
-            },
-            // 移出
-            function(){
-              // 修改幕布和最小起订量display属性使其隐藏
-              // $('.min_order,.red_curtain').css('display','none')
-              $(this).find('.red_curtain').css('animation','fadeout 0.5s linear forwards')
-              // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
-              // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
-              // $(this).parent().children('.red_curtain').css('display','none')
-              // $('this').next().css('display','none')
-
-          })
-         </script>
          <!-- 三个产品组方块:PCV valves;Air filter;Oil filter:默认红图,点击切换灰图 -->
          <div style="display: flex; justify-content:space-between;width: 1200px;  ">
           <!-- PVC阀  -->
@@ -1481,54 +1474,6 @@ ul,li {
           <!-- 油滤器 -->
           <div id="oil_filter_btn" style="position: relative;cursor: pointer;"><img src="/static/img/red_banner.png" alt=""><span style='color: white;font-size: 18px;display: inline-block;z-index:8;position: absolute;margin:auto;top:0;bottom: 0;left: 0;right: 0;text-align: center;line-height: 56px;'>Oil filter</span></div>
         </div>
-        <!-- 产品组方框按钮JS:绑定点击事件 -->
-        <script>
-          // 入口函数:隐藏PCV阀和油滤器产品组,默认显示滤清器(中间) 滤清器灰色图片滤清器灰色图片
-          $(function(){
-            // 隐藏PCV阀和油滤器产品组,默认显示滤清器(中间)
-            $('#oil_filter').css('display','none')
-            $('#pcv_valve').css('display','none')
-            // 滤清器灰色图片
-            $('#air_filter_btn img').attr('src','/static/img/grey_banner.png')
-          })
-          // 绑定三个产品组按钮点击事件:点击显示对应产品组;按钮变成灰色
-            // pcv阀
-            $('#pcv_valve_btn').click(function(){
-              // 显示PCV阀产品组,隐藏其余两个
-              $('#oil_filter').css('display','none')
-              $('#pcv_valve').css('display','flex')
-              $('#pcv_valve').css('animation','fadein0to1move 1s')
-              $('#air_filter').css('display','none')
-              // 图片变灰色,其余2图片变成红色
-              $('#pcv_valve_btn img').attr('src','/static/img/grey_banner.png')
-              $('#air_filter_btn img').attr('src','/static/img/red_banner.png')
-              $('#oil_filter_btn img').attr('src','/static/img/red_banner.png')
-            })
-            // 滤清器
-            $('#air_filter_btn').click(function(){
-              // 显示滤清器产品组,隐藏其余两个
-              $('#oil_filter').css('display','none')
-              $('#pcv_valve').css('display','none')
-              $('#air_filter').css('display','flex')
-              $('#air_filter').css('animation','fadein0to1move 1s')
-              // 图片变灰色,其余2图片变成红色
-              $('#pcv_valve_btn img').attr('src','/static/img/red_banner.png')
-              $('#air_filter_btn img').attr('src','/static/img/grey_banner.png')
-              $('#oil_filter_btn img').attr('src','/static/img/red_banner.png')
-            })
-            // 油滤器
-            $('#oil_filter_btn').click(function(){
-              // 显示油滤器产品组,隐藏其余两个
-              $('#oil_filter').css('display','flex')
-              $('#oil_filter').css('animation','fadein0to1move 1s')
-              $('#pcv_valve').css('display','none')
-              $('#air_filter').css('display','none')
-              // 图片变灰色,其余2图片变成红色
-              $('#pcv_valve_btn img').attr('src','/static/img/red_banner.png')
-              $('#air_filter_btn img').attr('src','/static/img/red_banner.png')
-              $('#oil_filter_btn img').attr('src','/static/img/grey_banner.png')
-            })
-        </script>
         </td>
       </tr>
       <tr>
@@ -1536,36 +1481,7 @@ ul,li {
           <!-- 红线框 -->
           <div>
             <img src="/static/img/blk_banner1.png" alt="">
-            <style>
-                /* 轮播图动画:向左平移图片:左边距0->-1900 */
-                @keyframes scrollPic0to-1096{
-                /* 从左边距0 */
-                from{margin-left: 0px;}
-                /* 到左边距-1900 */
-                to{margin-left: -1096px;}
-              }
-              /* 轮播图动画:向左平移图片:左边距-1900到-2192 */
-             @keyframes scrollPic-1096to-2192{
-              /* 从左边距0 */
-              from{margin-left: -1096px;}
-              /* 到左边距-1900 */
-              to{margin-left: -2192px;}
-             } 
-             /* 轮播图动画:向右平移图片:左边距-2192到-1096 */
-              @keyframes scrollPic-2192to-1096{
-                /* 从左边距0 */
-                from{margin-left: -2192px;}
-                /* 到左边距-1900 */
-                to{margin-left: -1096px;}
-              }
-             /* 轮播图动画:向右平移图片:左边距-1096到0 */
-              @keyframes scrollPic-1096to0{
-                /* 从左边距0 */
-                from{margin-left: -1096px;}
-                /* 到左边距-1900 */
-                to{margin-left: 0px;}
-              }
-            </style>
+          
             <!-- 主框:工厂照片&about us&营业执照轮播图 -->
             <div style="background-color: #000;padding: 34px;width:1200px;display: flex;flex-direction: column;border-right: solid 1px red; border-left:solid 1px red">
             <img src="/static/img/factory.png" alt="">
@@ -1589,6 +1505,115 @@ ul,li {
               <span class="red_arrow glyphicon glyphicon-chevron-left" style="cursor: pointer;text-align: center;line-height: 25px;display: inline-block;width: 25px;height: 25px;font-size: 20px;z-index: 8;position: absolute;left:-26px;top:295px;background-color: red;color: white;"  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
               <span class="red_arrow glyphicon glyphicon-chevron-right" style="cursor: pointer;text-align: center;line-height: 25px;display: inline-block;width: 25px;height: 25px;font-size: 20px;z-index: 8;position: absolute;left:-26px;top:325px;background-color: red;color: white;"  class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </div>
+              
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <!-- 红线框 -->
+        <td>
+          <img src="/static/img/blk_banner2.png" alt="">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!-- contact us图片 -->
+          <img src="/static/img/contact_us.png" alt="">
+        </td>
+      </tr>
+    </table>
+  </div><!-- 黑色背景图盒子 -->
+  </div>
+   </body>
+  <footer>
+    <!-- 入口函数:页面滚到中间 -->
+    <script>
+      $(function(){
+        // 页面居中:在小窗口浏览器中右滚
+        var windowWidth=window.innerWidth
+        console.log('页面宽度',windowWidth)
+        if(windowWidth<=1280){
+         // 往右边滚动窗口
+         window.scrollTo(330,0)
+     
+        }
+      })
+     
+     </script>
+              <!-- 产品组方框按钮JS:绑定点击事件 -->
+              <script>
+                // 入口函数:隐藏PCV阀和油滤器产品组,默认显示滤清器(中间) 滤清器灰色图片滤清器灰色图片
+                $(function(){
+                  // 隐藏PCV阀和油滤器产品组,默认显示滤清器(中间)
+                  $('#oil_filter').css('display','none')
+                  $('#pcv_valve').css('display','none')
+                  // 滤清器灰色图片
+                  $('#air_filter_btn img').attr('src','/static/img/grey_banner.png')
+                })
+                // 绑定三个产品组按钮点击事件:点击显示对应产品组;按钮变成灰色
+                  // pcv阀
+                  $('#pcv_valve_btn').click(function(){
+                    // 显示PCV阀产品组,隐藏其余两个
+                    $('#oil_filter').css('display','none')
+                    $('#pcv_valve').css('display','flex')
+                    $('#pcv_valve').css('animation','fadein0to1move 1s')
+                    $('#air_filter').css('display','none')
+                    // 图片变灰色,其余2图片变成红色
+                    $('#pcv_valve_btn img').attr('src','/static/img/grey_banner.png')
+                    $('#air_filter_btn img').attr('src','/static/img/red_banner.png')
+                    $('#oil_filter_btn img').attr('src','/static/img/red_banner.png')
+                  })
+                  // 滤清器
+                  $('#air_filter_btn').click(function(){
+                    // 显示滤清器产品组,隐藏其余两个
+                    $('#oil_filter').css('display','none')
+                    $('#pcv_valve').css('display','none')
+                    $('#air_filter').css('display','flex')
+                    $('#air_filter').css('animation','fadein0to1move 1s')
+                    // 图片变灰色,其余2图片变成红色
+                    $('#pcv_valve_btn img').attr('src','/static/img/red_banner.png')
+                    $('#air_filter_btn img').attr('src','/static/img/grey_banner.png')
+                    $('#oil_filter_btn img').attr('src','/static/img/red_banner.png')
+                  })
+                  // 油滤器
+                  $('#oil_filter_btn').click(function(){
+                    // 显示油滤器产品组,隐藏其余两个
+                    $('#oil_filter').css('display','flex')
+                    $('#oil_filter').css('animation','fadein0to1move 1s')
+                    $('#pcv_valve').css('display','none')
+                    $('#air_filter').css('display','none')
+                    // 图片变灰色,其余2图片变成红色
+                    $('#pcv_valve_btn img').attr('src','/static/img/red_banner.png')
+                    $('#air_filter_btn img').attr('src','/static/img/red_banner.png')
+                    $('#oil_filter_btn img').attr('src','/static/img/grey_banner.png')
+                  })
+              </script>
+              <!-- 移入显示幕布和最小起订量JS -->
+              <script>
+      // 产品图片的上层的上层盒子hover:两个函数修改CSS
+      $('.yu_bbtp').hover(
+        // 移入
+        function(){
+          // 修改幕布和最小起订量display属性使其显示 
+          // $('.min_order,.red_curtain').css('display','block')
+          // this.querySelector('.min_order,.red_curtain')
+          $(this).find('.red_curtain').css('animation','fadein 0.5s linear forwards')
+          // $(this).parent().children('.red_curtain').css('animation','fadein 1s linear forwards')
+          // $(this).parent().children('.red_curtain').css('display','block')
+        },
+        // 移出
+        function(){
+          // 修改幕布和最小起订量display属性使其隐藏
+          // $('.min_order,.red_curtain').css('display','none')
+          $(this).find('.red_curtain').css('animation','fadeout 0.5s linear forwards')
+          // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
+          // $(this).parent().children('.red_curtain').css('animation','fadeout 1s linear ')
+          // $(this).parent().children('.red_curtain').css('display','none')
+          // $('this').next().css('display','none')
+
+      })
+     </script>
               <!-- 左右箭头拉动图片轮播图JS:通过首图左边距动画+最后一张假图+极限值直接设定边距 -->
               <script>
                 // 激活小圆点样式函数:输入下标
@@ -1817,35 +1842,6 @@ ul,li {
                 setInterval(function(){scrollPic()},2000)
 
               </script>
-              
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <!-- 红线框 -->
-        <td>
-          <img src="/static/img/blk_banner2.png" alt="">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <!-- contact us图片 -->
-          <img src="/static/img/contact_us.png" alt="">
-        </td>
-      </tr>
-    </table>
-  </div><!-- 黑色背景图盒子 -->
-  </div>
-    <!-- 防止vue和django冲突 -->
-    <!-- vue容器 -->
-    <div id="root">
-    {% verbatim myblock %}
-    {% endverbatim myblock %}
-  </div> 
-  <!-- vue容器end -->
-  </body>
-  <footer>
     <!-- 绑定鼠标移入事件:鼠标移入一级标签显示二级菜单 -->
     <script>
       // 绑定Products标签 
