@@ -1540,7 +1540,7 @@ ul,li {
     </table>
   </div><!-- 黑色背景图盒子end -->
   <!-- 彩色背景盒子 -->
-  <div class="container" style=" padding: 100px;;width: 1900px;height: 600px;background-size: 1900px;background-image: url('/static/img/colorfull_background.png);">
+  <div class="container" style=" padding: 100px;;width: 1900px;height: 300px;background-size: 1900px;background-image: url('/static/img/colorfull_background.png);">
     
    <div class="container" style="width: 1200px;">
     <table>
@@ -1550,59 +1550,213 @@ ul,li {
             display: inline-block;
           
           }
+          .ppl{
+            cursor: pointer;
+          }
+          .ppl span{
+            left:15px
+          }
         </style>
         <td style="display:flex;justify-content: space-around;">
           
           
             <div class="ppl">
-              
+              <!-- 头像1 -->
               <img src="/static/img/people1.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">Gu Shawn</span>
             </div>
             <div class="ppl">
-
+             <!-- 头像2 -->
               <img src="/static/img/people2.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">Colson</span>
             </div>
             <div class="ppl">
 
               <img src="/static/img/people3.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">shanon Zhou</span>
             </div>
             <div class="ppl">
               
               <img src="/static/img/people4.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">Kyra Liu</span>
             </div>
             <div class="ppl">
 
               <img src="/static/img/people5.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">Jared</span>
             </div>
             <div class="ppl">
 
               <img src="/static/img/people6.png" alt="" class="people">
+              <br>
+              <!-- 旺旺 -->
+              <img src="/static/img/wangwang.png" style="height: 20px;display: inline-block;" alt="" class="">
+              <!-- 销售员名字 -->
+              <span style="display:inline-block;color: white;position: relative;top: 5px;">Linn Lin</span>
             </div>
-         
+       
          
 
           
           
           
-          <!-- 销售员*6:旋转 -->
-          <!-- 销售员*6:旋转JS:旋转730度 -->
-          <script>
-            $('.ppl').hover(function(){
-              $(this).children().css('-webkit-transform','rotateY(380deg)')
-              $(this).children().css('-webkit-transition','-webkit-transform 1s linear')
-            },function(){
-              $(this).children().css('-webkit-transform','rotateY(0deg)')
-              $(this).children().css('-webkit-transition','-webkit-transform 1s linear')
-            })
-          </script>
+          
+       
         </td>
       </tr>
+   
     </table>
+    
   </div>
   </div><!-- 彩色背景盒子end -->
+    <!-- 黑色背景盒子 -->
+    <div class="container" style=" padding: 100px;;width: 1900px;background-size: 1900px;background-color: black;">
+    
+      <div class="container" style="width: 1200px;">
+        <table>   <tr><td>  <div>
+          <!-- 照片墙 0514 -->
+          <img src="/static/img/photo_wall.png" alt="">
+         </div></td></tr>
+        <tr>
+          <td>
+            <style>
+              .photo_wall{border:rgb(52,52,52) solid 10px;background-color: #ffffff; }
+              .photo_wall img{margin: 10px; }
+              /* 动画 移入 右边和下边变白0-99%,变大 */
+              @keyframes white_border{
+                0%{
+                  border-right: #ffffff 1px solid;
+                  border-bottom: #ffffff 1px solid;
+                }
+                99%{
+                  border-right: #ffffff 1px solid;
+                  border-bottom: #ffffff 1px solid;
+                  
+                }
+              }
+              
+            </style>
+            <!-- 照片墙6张 -->
+            <div style="display: flex;flex-wrap:wrap;width: 1200px;height: 728px; position: relative;">
+              <!-- 照片盒子 -->
+              <div class="photo_wall" style="position: absolute;left: 30px;top:50px;height: 394;">
+
+                <img src="/static/img/team.png" style="width: 280;height: 354;margin: 10px;" alt="">
+              </div>
+              <div class="photo_wall" style="height: 304px;position: absolute;left: 365px">
+                <img src="/static/img/team2.png"  alt="">
+
+              </div>
+              <div class="photo_wall" style="height: 248px;;position: absolute;left: 656;top:50"">
+
+                <img src="/static/img/team3.png"  alt="">
+              </div>
+              <div class="photo_wall" style="height: 216px;position: absolute;left: 30;top:470">
+                <img src="/static/img/team4.png"  alt="">
+
+              </div>
+              <div class="photo_wall" style="height: 320px;position: absolute;left: 365;top:330">
+
+                <img src="/static/img/team5.png"  alt="">
+              </div>
+              <div class="photo_wall"  style="height: 216px;;position: absolute;left: 860;top:330">
+                <img src="/static/img/team6.png" alt="">
+
+              </div>
+              <!-- 照片墙移入白边&变大JS  -->
+              <script>
+                $('.photo_wall').hover(function(){
+                  // 照片盒子移入变大2%,白边到99%
+                  $(this).css('transform','scale(1.02)')
+                  $(this).css('transition','transform 0.5s linear')
+                  $(this).css('animation','white_border')
+                  
+                  // // 照片变大2%
+                  // $(this).children().css('transform','scale(1.02)')
+                  // $(this).children().css('transition','transform 1s linear')
+                },function(){
+                  // 移出还原大小
+                  // 盒子还原
+                  $(this).css('transform','scale(1)')
+                  $(this).css('transition','transform 0.5s linear')
+                  //   // 照片还原
+                  //   $(this).children().css('transform','scale(1)')
+                  // $(this).children().css('transition','transform 1s linear')
+
+                })
+              </script>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!-- 类目框 -->
+            <!-- 红线框 -->
+            <img src="/static/img/blk_banner1.png" alt="">
+            <div style="border-right:red 1px solid ;border-left:red 1px solid">
+             <!-- 分类 -->
+             <img src="/static/img/classification.png" alt="">
+             <!-- 9个类目 -->
+             <!-- 9个类目CSS -->
+             <style>
+              
+             </style>
+             <div style="display:flex;justify-content:space-around;flex-wrap: wrap;">
+              <div style="display: inline-block;position: relative; " ><img src="/static/img/red_arrow_block.png" alt=""><span style="z-index: 8;position: absolute;display: inline-block; left:40%;line-height: 56px;">Engine Mounts</span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span></span></div>
+              
+              
+             </div>
+            </div>
+
+            <!-- 红线下框 -->
+            <img src="/static/img/blk_banner2.png" alt="">
+          </td>
+        </tr>
+        </table>
+        </div>
+    </div><!-- 黑色背景盒子end -->
   </div>
    </body>
   <footer>
+    <!-- 销售员*6:旋转 -->
+       <!-- 销售员*6:旋转JS:旋转730度 -->
+       <script>
+        $('.ppl').hover(function(){
+          $(this).find('img:eq(0)').css('-webkit-transform','rotateY(400deg)')
+          $(this).find('img:eq(0)').css('-webkit-transition','-webkit-transform 1s linear')
+        },function(){
+          $(this).find('img:eq(0)').css('-webkit-transform','rotateY(0deg)')
+          $(this).find('img:eq(0)').css('-webkit-transition','-webkit-transform 1s linear')
+        })
+      </script>
     <!-- 入口函数:页面滚到中间 -->
     <script>
       $(function(){
