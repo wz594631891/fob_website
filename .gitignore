@@ -4,6 +4,7 @@ fob_website/
 新建文件夹 (2)/
 福步官网(2)/
 home_pythonX/
+.idea/
 #禁止跟踪.lnk .exe .xls .xlsx **多级目录
 *.lnk
 *.exe
@@ -11,14 +12,11 @@ home_pythonX/
 *.xlsx
 *.docx
 *.doc
-<<<<<<< HEAD
 # 禁止pycache
 */__pycache__/
 */*/__pycache__/
 */*/*/__pycache__/
-=======
 **/__pycache__/
->>>>>>> 7e8f2df4d6cf974e9eb0aa1fd26f8b39cad84a2d
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
