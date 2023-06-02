@@ -17,7 +17,38 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
  
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<!-- #TODO汽车轮播图CSS -->
+<style>
+ 
+  /* 底部汽车轮播图动画:向左平移图片:左边距0->-1200 */
+  @keyframes scrollPic0to-1200{
+  /* 从左边距0 */
+  from{margin-left: 0px;}
+  /* 到左边距-1900 */
+  to{margin-left: -1200px;}
+}
+/* 轮播图动画:向左平移图片:左边距-1900到-2400 */
+@keyframes scrollPic-1200to-2400{
+/* 从左边距0 */
+from{margin-left: -1200px;}
+/* 到左边距-1900 */
+to{margin-left: -2400px;}
+} 
+/* 轮播图动画:向右平移图片:左边距-2400到-1200 */
+@keyframes scrollPic-2400to-1200{
+  /* 从左边距0 */
+  from{margin-left: -2400px;}
+  /* 到左边距-1900 */
+  to{margin-left: -1200px;}
+}
+/* 轮播图动画:向右平移图片:左边距-1200到0 */
+@keyframes scrollPic-1200to0{
+  /* 从左边距0 */
+  from{margin-left: -1200px;}
+  /* 到左边距-1900 */
+  to{margin-left: 0px;}
+}
+</style>
 <style>
   /* 轮播图动画(营业执照):向左平移图片:左边距0->-1900 */
   @keyframes scrollPic0to-1096{
@@ -1767,7 +1798,7 @@ ul,li {
           }
           
           </style>
-          <td style="display:flex;justify-content:space-between" class="four_goods">
+          <td style="margin-top:20px;display:flex;justify-content:space-between" class="four_goods">
              <!-- 四产品 -->
              <div><img class="four_goods_img"  src="/static/img/四产品1.png" alt=""><img class="red_block_chart" src="/static/img/red_block_chart.png" alt=""><span>$0.03-$0.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN ORDER:1000</span></div>
              <div><img class="four_goods_img" src="/static/img/四产品2.png" alt=""> <img src="/static/img/red_block_chart.png" class="red_block_chart" alt=""><span>$0.06 - $0.07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN ORDER:1000</span></div>
@@ -1776,28 +1807,264 @@ ul,li {
           </td>
         </tr>
         <tr>
+          
           <!-- 轮播图(底部)  -->
+          <!-- #TODO 底部汽车轮播图 -->
           <td>
                   <!-- 轮播图外框  -->
-                  <div style="position: relative;width:1200px;height: 500;display: flex;">
+                  <div style="margin-top:20px;position: relative;width:1200px;height: 500;display: flex;">
                     <!-- 执照轮播图:2张,左边左右红箭头可控制 下方小圆点可控制 -->
-                    <div id="scrollPhoto" style="overflow: hidden;position: relative;width:1200px;height: 500px;display: flex;" >
+                    <div id="lunboPhoto" style="overflow: hidden;position: relative;width:1200px;height: 500px;display: flex;" >
                       <!-- <img id="certificate_pic0" style="margin-left: -1096;" src="/static/img/certificate2.png" alt=""> -->
                       <!-- 图1 -->
-                      <img id="scrollPhoto1" src="/static/img/轮播图二图1.png" alt="">
+                      <img id="lunboPhoto_pic1" src="/static/img/轮播图二图1.png" alt="">
                       <!-- 图2 -->
-                      <img id="scrollPhoto2" src="/static/img/轮播图二图2.png" alt="">
+                      <img id="lunboPhoto_pic2" src="/static/img/轮播图二图2.png" alt="">
                       <!-- 图3:假图实际图1 -->
-                      <img id="scrollPhoto3" src="/static/img/轮播图二图1.png" alt="">
+                      <img id="lunboPhoto_pic3" src="/static/img/轮播图二图1.png" alt="">
                       <!-- 小圆点*2:选中时为红色;否则半透明白色 -->
                       <button class="lunboSpot" style="border:none;left: 48%;width: 20px;height: 20px;position: absolute;bottom:20px;z-index: 8;border-radius:50%;background-color:#ffffff;opacity:0.5;cursor: pointer;"></button>
                       <button class="lunboSpot" style="border:none;left: 52%;width: 20px;height: 20px;position: absolute;bottom:20px;z-index: 8;border-radius:50%;background-color:#ffffff;opacity:0.5;cursor: pointer;"></button>
                     </div>
                     <!-- 左右箭头按钮 25px-->
-                    <span class="leftLunboArrow glyphicon glyphicon-chevron-left" style="top:45%;width: 30;height:80;display:inline-block;z-index:8;position:absolute;left:0;background-color: gray;opacity: 0.2;line-height:80px ;text-align: center;color:white;" ></span>
-                    <span class="rightLunboArrow glyphicon glyphicon-chevron-right" style="top:45%;width: 30;height:80;display:inline-block;z-index:8;position:absolute;right:0;background-color: gray;opacity: 0.2;line-height:80px ;text-align: center;color:white;"></span>
+                    <span class="lunboArrow leftLunboArrow glyphicon glyphicon-chevron-left" style="top:45%;width: 30;height:80;display:inline-block;z-index:8;position:absolute;left:0;background-color: gray;opacity: 0.2;line-height:80px ;text-align: center;color:white;" ></span>
+                    <span class="lunboArrow rightLunboArrow glyphicon glyphicon-chevron-right" style="top:45%;width: 30;height:80;display:inline-block;z-index:8;position:absolute;right:0;background-color: gray;opacity: 0.2;line-height:80px ;text-align: center;color:white;"></span>
                   </div>
+                   <!-- 左右箭头拉动图片轮播图JS:通过首图左边距动画+最后一张假图+极限值直接设定边距 -->
+                   <!-- #TODO 底部汽车轮播图JS待修改 -->
+              <script>
+                // 激活小圆点样式函数:输入下标
+                function activateLunboSpot(i){
+                  $('.lunboSpot').eq(i).css('backgroundColor','red')
+                  $('.lunboSpot').eq(i).css('opacity','1')
+                  if(i==0){
+                    //激活小园点1 失活小圆点2 
+                    $('.lunboSpot').eq(1).css('backgroundColor','white')
+                   $('.lunboSpot').eq(1).css('opacity','0.5')
+                  }
+                  else if(i==1){
+                    //激活小园点2 失活小圆点1
+                    $('.lunboSpot').eq(0).css('backgroundColor','white')
+                   $('.lunboSpot').eq(0).css('opacity','0.5')
+                  }
+                }
+                //0.入口函数:设圆点1为红色并且非透明
+                $(function(){
+                  $('.lunboSpot:eq(0)').css('backgroundColor','red')
+                  $('.lunboSpot:eq(0)').css('opacity','1')
+                })
+
+                // 一.左箭头点击事件0503:ok
+                $('.lunboArrow:eq(0)').click(function(){
+                  // 获取左箭头
+                  var leftRedArrow= $('.lunboArrow:eq(0)')
+                  // 获取图片1
+                  var certificate1=$('#lunboPhoto>img:eq(0)')
+                  var marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')-1200+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2400,-1200,0)
+                  // 当边距为0:0到-1200 
+                  if(marginLeft==0){
+                    console.log('左边距0')
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1200 1s forwards')
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                  }
+                  // 当边距为-1200:-1200到-2400 
+                 else if(marginLeft==-1200){
+                    console.log('左边距-1200')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-1200to-2400 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activateLunboSpot(0)
+                  }
+                  //当边距为-2400:2400并回到0,并拉动0到-1200 
+                  else if(marginLeft==-2400){
+                    console.log('左边距-2400')
+                    certificate1.css('marginLeft','0')//回到0
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1200 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                    
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1200,-2400无动作')
+                  }
+                })
+                // 二.右箭头点击事件
+                $('.lunboArrow:eq(1)').click(function(){
+                  // 获取右箭头
+                  var rightRedArrow= $('.lunboArrow:eq(1)')
+                  // 获取图片1
+                  var certificate1=$('#lunboPhoto>img:eq(0)')
+                  var marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')+1200+'px'
+                  console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2400,-1200,0)
+                  // 当边距为0:切换到-2400 ,从-2400到-1200
+                  if(marginLeft==0){
+                    console.log('边距为0:切换到-2400 ,从-2400到-1200')
+                    certificate1.css('marginLeft','-2400')//切换到-2400
+                    // 用动画:从-2400到-1200
+                    certificate1.css('animation','scrollPic-2400to-1200 1s forwards')
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                  }
+                  // 当边距为-1200:-1200到0   
+                  else if(marginLeft==-1200){
+                    console.log('左边距-1200')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-1200to0 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activateLunboSpot(0)
+                    
+                  }
+                  //当边距为-2400:2400并回到0,并拉动0到-1200 
+                  else if(marginLeft==-2400){
+                    console.log('左边距-2400')
+                    // 用动画:从-2400到-1200
+                    certificate1.css('animation','scrollPic-2400to-1200 1s forwards')                    
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    console.log('左边距不是0,-1200,-2400无动作')
+                  }
+                })
+                // 三.左右小圆点拉动图片JS
+                  // 1.圆点1点击事件:变成红色,显示图1或者图3时无动作,图2时拉动图1左边距-1200到0,把圆点2变成白色半透明
+                  var spot1=$('.lunboSpot:eq(0)')//获取元素圆点1
+                  var spot2=$('.lunboSpot:eq(1)')//获取元素圆点2
+                  $('.lunboSpot:eq(0)').click(function(){
+                       
+                        // 把圆点1变成红色不透明
+                        // 把圆点2变成白色半透明
+                        
+                        // 判断边距
+                        // 获取图片1
+                        var certificate1=$('#lunboPhoto>img:eq(0)')
+                        //获取左边距
+                        var marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                        var newMarginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')-1200+'px'
+                         //当为三大边距时激活圆点1
+                         if(marginLeft==0||marginLeft==-1200||marginLeft==-2400){
+                            activateLunboSpot(0)
+                         } 
+                         console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                         // 当边距为-1200:-1200到-2400 ;其他情况下无动作
+                         if(marginLeft==-1200){
+                          console.log('圆点1:左边距-1200')
+                          console.log('左边距-1200')
+                          // 用动画
+                          certificate1.css('animation','scrollPic-1200to0 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                        }
+                          //当边距为-2400:2400并回到0,并拉动0到-1200 
+                        else if(marginLeft==-2400){
+                          var certificate1=$('#lunboPhoto>img:eq(0)')
+                          console.log('左边距-2400回到0')
+                          certificate1.css('marginLeft','0px')//回到0
+
+                          
+                        }
+                       }
+                      
+                       )
+                       // 2.圆点2点击事件
+                      $('.lunboSpot:eq(1)').click(function(){
+                        
+                        // // 把圆点2变成红色不透明
+                        // spot2.css('backgroundColor','red');
+                        // spot2.css('opacity','1')
+                        // // 把圆点1变成白色半透明
+                        // spot1.css('backgroundColor','white');
+                        // spot1.css('opacity','0.5')
+                        // 获取图片1
+                        var certificate1=$('#lunboPhoto>img:eq(0)')
+                        //获取左边距
+                        var marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                        var newMarginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')-1200+'px'
+                        console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                        //当为三大边距时激活圆点2
+                        if(marginLeft==0||marginLeft==-1200||marginLeft==-2400){
+                           activateLunboSpot(1)
+                        } 
+                        // 当边距为-1200:-1200到-2400;其他情况无动作
+                        if(marginLeft==-1200||marginLeft==0){
+                            console.log('圆点2:左边距-1200或者0:设边距为0')
+                            certificate1.css('marginLeft','0px')//设为0
+                            // 用动画
+                            certificate1.css('animation','scrollPic0to-1200 1s forwards')
+                    
+                        }
+                  })
+                // 轮播图自动运行
+                function scrollLunboPhoto(){
+                   // 获取左箭头
+                   var leftRedArrow= $('.lunboArrow:eq(0)')
+                  // 获取图片1
+                  var certificate1=$('#lunboPhoto>img:eq(0)')
+                  var marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                  var newMarginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')-1200+'px'
+                  // console.log('左边距',marginLeft,'新边距',newMarginLeft)
+                  // 根据左边距选择动画:边距:(-2400,-1200,0)
+                  // 当边距为0:0到-1200 
+                  if(marginLeft==0){
+                    console.log('左边距0')
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1200 1s forwards')
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                  }
+                  // 当边距为-1200:-1200到-2400 
+                 else if(marginLeft==-1200){
+                    // console.log('左边距-1200')
+                    // 用动画
+                    certificate1.css('animation','scrollPic-1200to-2400 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:1
+                    activateLunboSpot(0)
+                  }
+                  //当边距为-2400:2400并回到0,并拉动0到-1200 
+                  else if(marginLeft==-2400){
+                    // console.log('左边距-2400')
+                    certificate1.css('marginLeft','0')//回到0
+                    // 用动画
+                    certificate1.css('animation','scrollPic0to-1200 1s forwards')
+                    // //再次获取左边距
+                    // marginLeft=$('#lunboPhoto img:eq(0)').css('marginLeft').replace('px','')
+                    // 激活对应小圆点:2
+                    activateLunboSpot(1)
+                    
+                  }
+                  //当边距非以上(无动作)
+                  else{
+                    // console.log('左边距不是0,-1200,-2400无动作')
+                  }
+                }
+                // 间隔2s播放轮播图
+                setInterval(function(){scrollLunboPhoto()},2000)
+
+              </script>
+               <!-- #TODO 底部汽车轮播图end -->
           </td>
+        </tr>
+        <!-- HOT RECOMMEND推荐商品 -->
+        <tr>
+          <td ><img style="margin-top: 50px;" src="/static/img/hot_recommend.png" alt=""></td>
         </tr>
         </table>
         </div>
@@ -1903,6 +2170,8 @@ ul,li {
 
       })
      </script>
+    
+     <!-- #TODO 执照轮播图 -->
               <!-- 左右箭头拉动图片轮播图JS:通过首图左边距动画+最后一张假图+极限值直接设定边距 -->
               <script>
                 // 激活小圆点样式函数:输入下标

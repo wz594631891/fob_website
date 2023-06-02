@@ -12,11 +12,13 @@ home_pythonX/
 *.xlsx
 *.docx
 *.doc
+*.pyc
 # 禁止pycache
+**/__pycache__
+**/__pycache__/
 */__pycache__/
 */*/__pycache__/
 */*/*/__pycache__/
-**/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
