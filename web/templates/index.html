@@ -191,7 +191,8 @@ to{margin-left: -2192px;}
      /*一级菜单:横向导航栏:背景色和高宽  */
      .ul1{       
        background-color:rgb(186,210,233);
-       width:100%;
+       /* width:100%; */
+       width: 1900px;;
        height:45px;
        margin:0px;
        z-index: 6;
@@ -433,8 +434,8 @@ ul,li {
       
     
   <!-- 下拉菜单 -->
-    <!-- 1级菜单:图层1 -->
-    <ul class="ul1" style="position:relative;width:2500px" >     
+    <!-- 1级菜单:图层1 2500->1900:0604-->
+    <ul class="ul1" style="position:relative;width:1900px" >     
       <li class="li1" style="background-color:#a7bed5;"  id='one'><a style="text-decoration: none;color:#ffffff;" href="">Home</a></li>
       <!-- 菜单项products 箭头(旋转) -->
       <!-- 旋转180度带动画CSS -->
@@ -1753,18 +1754,20 @@ ul,li {
               /*文字定位&颜色  */
               .classification span{
                 z-index: 8;position: absolute;display: inline-block; left:25%;line-height: 56px;color:white;font-size: 20px;
+                text-align: center;
               }
               /* 定位 */
               .classification div{position: relative;margin-top: 20px;cursor: pointer;}
+              .long_classification span{left:15%;}
              </style>
              <div class="classification" style="display:flex;justify-content:space-around;flex-wrap: wrap;">
               <!-- 9个类目:红方块和文字 -->
               <div style="display: inline-block;position: relative; " ><img src="/static/img/red_arrow_block.png" alt=""><span style="">Universal Parts</span></div>
               <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Cooling System</span></div>
               <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Engine Mounts</span></div>
-              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Auto Suspension Systems</span></div>
-              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Engine overhaul package</span></div>
-              <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Fuel Line Quick Connector</span></div>
+              <div class="long_classification" style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Auto Suspension Systems</span></div>
+              <div class="long_classification"  style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Engine overhaul package</span></div>
+              <div class="long_classification"  style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Fuel Line Quick Connector</span></div>
               <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>VVT Valve</span></div>
               <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Clutch Slave Cylinder</span></div>
               <div style="display: inline-block; " ><img src="/static/img/red_arrow_block.png" alt=""><span>Gasket</span></div>
@@ -2066,12 +2069,171 @@ ul,li {
         <tr>
           <td ><img style="margin-top: 50px;" src="/static/img/hot_recommend.png" alt=""></td>
         </tr>
+          <!-- #todo 推荐15产品 -->
+          
+          <tr>
+            <!-- 推荐15产品CSS -->
+            <style>
+             .fifteen_goods_img{
+              height: 230;
+              width: 230;
+              cursor: pointer;
+            }
+            .red_block_cart{
+               height: 36px;
+               width: 230
+  
+             }
+             .fifteen_goods span{
+              color: #ffffff;position:absolute;bottom: 10px;left:30px;z-index: 8;font-size: 2px;display: inline-block;
+             }
+             .fifteen_goods div{
+              position: relative;
+              display: flex;
+              flex-direction: column; 
+              background-color: rgb(41,41,41);
+              color:white;
+              font-size: 19px;
+              text-align:center;
+              overflow: hidden;
+            }
+            .goods_title{
+              display: inline-block;
+              height: 90    ;
+              width: 230
+            }
+            </style>
+            <div id="root"> <!-- vue root -->
+            <!-- 第一行产品:用vue绑定图片源 -->
+            <td id="fifteen_goods_line1" style="flex-direction: row; margin-top:20px;display:flex;justify-content:space-between" class="fifteen_goods">
+               <div><img class="fifteen_goods_img" v-bind:src="url[0]" alt=""><div class="goods_title">Fuel Pump Module Assembly Fuel Pump Assy For Mercedes Benz Mitsubishi Toyota Lexus Hyundai Jeep BMW Audi Chevrolet Volvo Ford VW</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$0.03-$0.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN ORDER:1000</span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[1]"alt=""> <div class="goods_title">Fuel Injector Repair Kits O Ring Seals Plastic Parts</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$0.06 - $0.11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN ORDER:1000</span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[2]" alt=""><div class="goods_title">11001 Auto Car Petrol Fuel Injector Micro Basket Filters Bulk Basket Nylon 6*3 *12MM</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$0.03 - $0.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN ORDER:1000</span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[3]" alt=""><div class="goods_title">11001 Fuel Injector Micro Filter Repair Kits Microfiltros Para De Inyectores For Bosch Mazda Ford Bmw</div><img class="red_block_cart" src="/static/img/red_block_chart.png"> <span>$0.03 - $0.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:50 </span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[4]" alt=""><div class="goods_title">fuel pump connector fuel pump e2068 bomba de combustible universal</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$3.40 - $4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:50</span></div>
+            </td>
+          </tr>
+          <!-- 第二行产品 -->
+          <tr>
+            <td id="fifteen_goods_line2" style="flex-direction: row; margin-top:20px;display:flex;justify-content:space-between" class="fifteen_goods">
+               <!-- 第一行产品 -->
+               <div><img class="fifteen_goods_img" v-bind:src="url[0]" alt=""><div class="goods_title">All Type Automotive Motorcycle Universal Fuel Pump Filter Strainer For Toyota BWM Mazda LEXUS HYUNDAI KIA Honda Nissan Suzuki VW</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$0.20 - $0.24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:100              </span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[1]" alt=""> <div class="goods_title">Car Bobina de encendido Ignition Coil For Nissan Suzuki Msd Toyota Hyundai Bmw Delphi Denso Ngk Peugeot Chevrolet Honda</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$5.00 - $6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:20              </span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[2]" alt=""><div class="goods_title">Car Electric Bomba De Combustible Fuel Pump For Toyota Nissan Yamaha Hyundai Chevrolet Denso Delphi Suzuki Isuzu Bmw VW</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$3.00 - $4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:20              </span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[3]" alt=""><div class="goods_title">Auto Cars Motorcycle Bujia Spark Plug For Nissan Ngk Denso Honda Toyota Hyundai Mazda Bmw Peugeot</div><img class="red_block_cart" src="/static/img/red_block_chart.png"> <span>$0.77 - $1.29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:100              </span></div>
+               <div><img class="fifteen_goods_img" v-bind:src="url[4]" alt=""><div class="goods_title">Car Assembly Nozzle inyector De combustible Fuel Injector For Toyota Ford Mazda Denso Honda Bmw Nissan Suzuki Hyundai Kia</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$4.00 - $5.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:20              </span></div>
+            </td>
+          </tr>
+             <!-- 第三行产品 -->
+             <tr>
+              <td id="fifteen_goods_line3" style="flex-direction: row; margin-top:20px;display:flex;justify-content:space-between" class="fifteen_goods">
+                 <!-- 第一行产品 -->
+                 <div><img class="fifteen_goods_img" v-bind:src="url[0]" alt=""><div class="goods_title">Fuel Injector Repair Kit Micro Filter 11002 For Toyota Yaris 1.5L Corolla Auris Yamaha YZF-R6 6*3*10.7mm</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$0.08 - $0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:1000                </span></div>
+                 <div><img class="fifteen_goods_img" v-bind:src="url[1]" alt=""> <div class="goods_title">Wheel Speed ABS Sensor For Toyota Ford Isuzu Kia Bmw Vw Mazda Honda Hyundai Peugeot</div><img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$4.50 - $5.50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:20                </span></div>
+                 <div><img class="fifteen_goods_img" v-bind:src="url[2]" alt=""><div class="goods_title">Car Engine Fuel Pressure Regulator For Nissan Toyota Chevrolet Hyundai Ford Kia Denso</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$8.30 - $10.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:50                </span></div>
+                 <div><img class="fifteen_goods_img" v-bind:src="url[3]" alt=""><div class="goods_title">All Size Fuel Line Quick Connector Disconnect Release Hose Pipe Fitting Petrol</div><img class="red_block_cart" src="/static/img/red_block_chart.png"> <span>$7.60 - $8.70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:30                </span></div>
+                 <div><img class="fifteen_goods_img" v-bind:src="url[4]" alt=""><div class="goods_title">VVT Valve For Kia Toyota RAV 4 II ECHO Saloon SOUL RIO II Saloon Yaris Echo Prius Scion 1.5L</div> <img class="red_block_cart" src="/static/img/red_block_chart.png"><span>$2.50 - $7.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN.ORDER:50.0                </span></div>
+                </td>
+            </tr>
+            <!-- vue #root end-->
+          </div>
+           <!-- vue代码:十五图片url  -->
+            <script>
+              // Vue.config.productionTip = false;无效需要改源码
+            var vm= new Vue({
+                el:"#fifteen_goods_line1",
+                // 分隔符改为[[]]双中括号
+                delimeters:['[[',']]'],
+                data:{
+                  // 图片网站
+                  url:['https://sc04.alicdn.com/kf/H270d409b5abc489fba5a6a63940b6e37e/Fuel-Pump-Module-Assembly-Fuel-Pump-Assy.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Hda82660b4b4d4d5e9bcec549eea763b5p/Fuel-Injector-Repair-Kits-O-Ring-Seals.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Had184a2438814c668012cfbfd7c256f4a/11001-Auto-Car-Petrol-Fuel-Injector-Micro.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/H1278be40f06f46ed99beec32eec49866J/11001-Fuel-Injector-Micro-Filter-Repair-Kits.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Hc9dda9230f8c4b12a79d52c97f939fb6I/fuel-pump-connector-fuel-pump-e2068-bomba.jpg_350x350.jpg',
+                  ]
+                  
+                }
+              })
+               new Vue({
+                el:"#fifteen_goods_line2",
+                // 分隔符改为[[]]双中括号
+                delimeters:['[[',']]'],
+                data:{
+                   // 图片网站
+                  url:['https://sc04.alicdn.com/kf/Hbe37f9d3255b498f89cea9f7d93ad168A/All-Type-Automotive-Motorcycle-Universal-Fuel-Pump.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/H6b2e6cd3beb045bca58391450707973fa/Car-Bobina-de-encendido-Ignition-Coil-For.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Ha1b43996ac2c40979d5f9b3bb1031ea7E/Car-Electric-Bomba-De-Combustible-Fuel-Pump.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Af9e7dffd770f4d43b4f9e12c22ff2fc18/Auto-Cars-Motorcycle-Bujia-Spark-Plug-For.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Hb5deda8deaf14a55a6dc6e4c19fd9d341/Car-Assembly-Nozzle-inyector-De-combustible-Fuel.jpg_350x350.jpg',
+                  ]
+                }
+              })
+               new Vue({
+                el:"#fifteen_goods_line3",
+                // 分隔符改为[[]]双中括号
+                delimeters:['[[',']]'],
+                data:{
+                      // 图片网站
+                      url:['https://sc04.alicdn.com/kf/H2091803eb02247df9dcc65bee5c1d8d6P/Fuel-Injector-Repair-Kit-Micro-Filter-11002.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/H4f9d70723401485cb0b5fb6c2757d4cda/Wheel-Speed-ABS-Sensor-For-Toyota-Ford.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/Ha0631d4f104749abba7ba74870e04da62/Car-Engine-Fuel-Pressure-Regulator-For-Nissan.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/H37a4fae764cb44a08ac652f83d5e1307F/All-Size-Fuel-Line-Quick-Connector-Disconnect.jpg_350x350.jpg',
+                        'https://sc04.alicdn.com/kf/H29906952542b44e6a987fbbd4e3b8c84R/VVT-Valve-For-Kia-Toyota-RAV-4.jpg_350x350.jpg',
+                  ]
+                }
+              })
+            </script>
         </table>
         </div>
     </div><!-- 黑色背景盒子end -->
+     <!-- 燃烧背景盒子 -->
+     <div class="container" style=" padding: 100px;;width: 1900px;background-size: 1900px;background-image: url('https://sc02.alicdn.com/kf/H9780918eb5bf4aa388ffa4556eae6995C.jpg');">
+      <!-- 公司介绍 -->
+      <div class="container" style="width: 1200px; ">
+        <img src="/static/img/blk_banner1.png" alt="">
+        <img style="border-left: red 1px solid; border-right: red 1px solid ;width:1200px" src="/static/img/company_introduce.png" alt="">
+        <img src="/static/img/blk_banner2.png" alt="">
+      </div>
+      <!-- 燃烧背景盒子end -->
+    </div>
+  </div>
+  <!-- 页脚:备案 版权声明 -->
+  <div class="container" style="margin-top: 50px;padding-top: 10px;width: 1900px;border-top:solid 1px rgb(204,204,204);background-color: rgb(245,245,245);color:rgb(204,204,204)">
+  <center>  <img style="height: 28px;width: 26px;vertical-align: middle;margin-right: 6px;" src="https://img.alicdn.com/tfs/TB1VtZtebH1gK0jSZFwXXc7aXXa-65-70.gif" >
+    <span>©2017-2023 FOB AUTO PARTS CO.,LTD. All rights reserved</span>
+    <img src="https://img.alicdn.com/tfs/TB1QhYprKT2gK0jSZFvXXXnFXXa-20-20.png" style="height: 28px;width: 26px;vertical-align: middle;margin-right: 6px;" data-spm-anchor-id="a2700.shop_index.0.i8.697e69f0ShW18o">
+    <span>浙公网安备 33010002000092号 浙B2-20120091-4</span></center>
   </div>
    </body>
+   <!-- #todofooter -->
   <footer>
+    <!-- #TODO 滚动条有条件跟踪 -->
+    <!-- 获取滚动条高度 -->
+    </script>
+    <script type="text/javascript">
+      var scrollFunc = function(e) {
+        //获取滚动条到顶部的垂直高度
+        console.log($(document).scrollTop());
+        // 大于200时蓝色导航条跟踪窗口
+        if(parseInt($(document).scrollTop())>=200){
+          $('.ul1:eq(0)').css('position','fixed')
+          $('.ul1:eq(0)').css('top','0')
+        }
+        else{
+          $('.ul1:eq(0)').css('position','relative')
+          $('.ul1:eq(0)').removeAttr('top')
+        }
+        
+
+      }
+      //给页面绑定滑轮滚动事件  
+      if (document.addEventListener) { //firefox  
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+      }
+      //滚动滑轮触发scrollFunc方法  //ie 谷歌  
+      window.onmousewheel = document.onmousewheel = scrollFunc;
+    </script>
     <!-- 销售员*6:旋转 -->
        <!-- 销售员*6:旋转JS:旋转730度 -->
        <script>
@@ -2549,20 +2711,7 @@ ul,li {
         }
      })
     </script>
-    <!-- vue代码  -->
-    <script type="text/javascript">
-    </script> 
-    <script>
-      // Vue.config.productionTip = false;无效需要改源码
-     var vm= new Vue({
-        el:"#root",
-        data:{
-          // 存储颜色rgb
-          orange:'rgb(204,86,1)',
-          grey:'rgb(94,110,120)'
-        }
-      })
-    </script>
+   
   
   </footer>
  </html>
