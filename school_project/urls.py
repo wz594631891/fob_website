@@ -28,7 +28,8 @@ urlpatterns = [
 	path('index/',views.index),#路径函数对应关系,首页
     path('admin/', admin.site.urls),
     path('search/',views.search),#福步搜索产品页
-    path('product/',views.product),#福步产品页
+    path('product/',views.product),#原站福步产品页
+    path('products/',views.products),#福步产品页(内部)
     
     path('profile/',views.profile),#福步介绍页
 

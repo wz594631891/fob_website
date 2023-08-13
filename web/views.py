@@ -16,23 +16,31 @@ def promotion(request):
 # 介绍页
 def profile(request):
 	return render(request,"profile.html")
+# 福步产品页(内部)
+def products(request):
+	return render(request,"products.html")
 #福步产品页
 def product(request):
 	if request.method=="GET":
-		#当有搜索参数时
-		if request.GET.get('model') :
-			#搜索参数 从title中搜索
-			model=request.GET.get('model')
-			print('查询型号:',model)
+		# #当有搜索参数时
+		# if request.GET.get('model') :
+		# 	#搜索参数 从title中搜索
+		# 	model=request.GET.get('model')
+		# 	print('查询型号:',model)
 			
-			product = models.Aliexpress_goods.objects.filter(model__endswith=model)[0:1]
-			product1 = models.Aliexpress_goods.objects.filter(model__endswith=model).first()
-			print('类型',type(product1))
-			print(product)
+		# 	product = models.Aliexpress_goods.objects.filter(model__endswith=model)[0:1]
+		# 	product1 = models.Aliexpress_goods.objects.filter(model__endswith=model).first()
+		# 	print('类型',type(product1))
+		# 	print(product)
 		
 
-			#返回结果
-			return render(request,"product.html",{'list':product,"title":"搜索产品(官网)"})
+		# 	#返回结果
+		# 	return render(request,"product.html",{'list':product,"title":"搜索产品(官网)"})
+		search_string=request.GET.get('search_string')
+		print(search_string)
+		# model=request.GET.get('model')
+		#跳转原站搜索页
+		return redirect("https://fobwerks.en.alibaba.com/search/product?SearchText=%s"%search_string)
 #福步搜索产品(官网)
 def search(request):
 	if request.method=="GET":
