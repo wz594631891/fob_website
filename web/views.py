@@ -7,6 +7,12 @@ from . import models
 from exsql import execute
 from .models import Student,Username,Aliexpress_goods
 from django.core.paginator import Paginator   #这个是处理分页的
+# 联络页
+def contacts(request):
+	return render(request,"contacts.html")
+# 促销页
+def promotion(request):
+	return render(request,"promotion.html")
 # 介绍页
 def profile(request):
 	return render(request,"profile.html")

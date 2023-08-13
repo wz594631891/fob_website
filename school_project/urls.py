@@ -22,13 +22,16 @@ from django.contrib import admin
 from django.urls import path
 from web import views
 urlpatterns = [
+	path('contacts/',views.contacts),#路径函数对应关系,首页
+	path('promotion/',views.promotion),#路径函数对应关系,首页
 	path('profile/',views.profile),#路径函数对应关系,首页
 	path('index/',views.index),#路径函数对应关系,首页
     path('admin/', admin.site.urls),
     path('search/',views.search),#福步搜索产品页
     path('product/',views.product),#福步产品页
     
-    # path('favicon.ico', RedirectView.as_view(url='static/img/favicon.ico')),     #图标 
+    path('profile/',views.profile),#福步介绍页
+
     path('favicon.ico', serve, {'path': 'img/favicon.ico'}),  #图标 
     # #加载本地图片X
     # url(r'^book/(?P<path>.*)$', serve, {'document_root':'D:/github_goods'})
