@@ -19,7 +19,16 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- #TODO汽车轮播图CSS -->
 <style>
- 
+ /* 移入变大1.05:四产品&推荐15产品 */
+.four_goods div:hover, #fifteen_goods_line3 div:hover,#fifteen_goods_line2 div:hover,#fifteen_goods_line1 div:hover{
+  transform: scale(1.05);
+  transition: transform 1s ;
+ }
+ /* 移入上升:9大类目 */
+.classification div:hover{
+  transform: translateY(-15px);
+  transition: transform 1s ;
+ }
   /* 底部汽车轮播图动画:向左平移图片:左边距0->-1200 */
   @keyframes scrollPic0to-1200{
   /* 从左边距0 */
@@ -186,11 +195,11 @@ to{margin-left: -2192px;}
      }
      /* 鼠标移入变成深蓝色*/
      .li1:hover{
-       background-color:#a7bed5;
+       background-color:rgb(171,10,4);
      } 
      /*一级菜单:横向导航栏:背景色和高宽  */
      .ul1{       
-       background-color:rgb(186,210,233);
+       background-color:rgb(191,30,24);
        /* width:100%; */
        width: 1900px;;
        height:45px;
@@ -436,7 +445,7 @@ ul,li {
   <!-- 下拉菜单 -->
     <!-- 1级菜单:图层1 2500->1900:0604-->
     <ul class="ul1" style="position:relative;width:1900px" >     
-      <li class="li1" style="background-color:#a7bed5;"  id='one'><a style="text-decoration: none;color:#ffffff;" href="">Home</a></li>
+      <li class="li1" style="background-color:rgb(171,10,4);"  id='one'><a style="text-decoration: none;color:#ffffff;" href="">Home</a></li>
       <!-- 菜单项products 箭头(旋转) -->
       <!-- 旋转180度带动画CSS -->
       <!-- <style>
@@ -476,7 +485,7 @@ ul,li {
       <li class="li1" ><a style="text-decoration: none;color:#ffffff;" href="">Promotion</a></li>
       <li class="li1" ><a style="text-decoration: none;color:#ffffff;" href="">Tips</a></li>   
       <!-- 搜索框 -->
-      <li id="search_li" ><input id="search" style="margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5" tabindex="0" autocomplete="off" placeholder="Search in this store" value=""  ><span class="glyphicon glyphicon-search" style="cursor: pointer;;opacity: 0.5;;position: relative;right: 20;" aria-hidden="true"></span></li>
+      <li id="search_li" ><input id="search" style="margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid rgb(171,10,4)" tabindex="0" autocomplete="off" placeholder="Search in this store" value=""  ><span class="glyphicon glyphicon-search" style="cursor: pointer;;opacity: 0.5;;position: relative;right: 20;" aria-hidden="true"></span></li>
 
     </ul>
     <!-- 大盒子:背景图  :background-size: 1900px 726px;-->
@@ -795,6 +804,10 @@ ul,li {
         }
         /* 图片调用动画:移入弹跳 */
         .gallery:hover{
+          animation:jumpLeft 1s linear
+        }
+        /* 作用于子元素 */
+        .gallery:hover>span{
           animation:jumpLeft 1s linear
         }
         /* 产品文字:白色;内联块
@@ -2198,13 +2211,7 @@ ul,li {
       <!-- 燃烧背景盒子end -->
     </div>
   </div>
-  <!-- 页脚:备案 版权声明 -->
-  <div class="container" style="margin-top: 50px;padding-top: 10px;width: 1900px;border-top:solid 1px rgb(204,204,204);background-color: rgb(245,245,245);color:rgb(204,204,204)">
-  <center>  <img style="height: 28px;width: 26px;vertical-align: middle;margin-right: 6px;" src="https://img.alicdn.com/tfs/TB1VtZtebH1gK0jSZFwXXc7aXXa-65-70.gif" >
-    <span>©2017-2023 FOB AUTO PARTS CO.,LTD. All rights reserved</span>
-    <img src="https://img.alicdn.com/tfs/TB1QhYprKT2gK0jSZFvXXXnFXXa-20-20.png" style="height: 28px;width: 26px;vertical-align: middle;margin-right: 6px;" data-spm-anchor-id="a2700.shop_index.0.i8.697e69f0ShW18o">
-    <span>浙公网安备 33010002000092号 浙B2-20120091-4</span></center>
-  </div>
+{%include 'copyright.html'%}
    </body>
    <!-- #todofooter -->
   <footer>
@@ -2620,7 +2627,7 @@ ul,li {
        // 鼠标移出搜索框变原来
        $('#search').mouseout(function(){
         // 修改气搜索框属性
-        $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid #a7bed5')
+        $('#search').attr('style','margin-left:320 ;margin-top: 10px; width: 220;height: 25; border-radius:15px;border:1px solid rgb(171,10,4)')
      })
       // 点击搜索框变橙色
       $('#search').click(function(){

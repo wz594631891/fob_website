@@ -22,17 +22,12 @@ from django.contrib import admin
 from django.urls import path
 from web import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('student_list/', views.student_list),
+	path('profile/',views.profile),#路径函数对应关系,首页
 	path('index/',views.index),#路径函数对应关系,首页
-    path('register/',views.register),#注册页
-    path('login/',views.login),#登录页面
-    # path('google_search_picture/',views.google_search_picture),#谷歌搜图
-    path('wait_ship_aliexpress_order/',views.wait_ship_aliexpress_order),#速卖通订单
-    path('delete/',views.delete),#删除速卖通订单
-    path('shipping_list/',views.shipping_list),#删除速卖通订单
+    path('admin/', admin.site.urls),
     path('search/',views.search),#福步搜索产品页
     path('product/',views.product),#福步产品页
+    
     # path('favicon.ico', RedirectView.as_view(url='static/img/favicon.ico')),     #图标 
     path('favicon.ico', serve, {'path': 'img/favicon.ico'}),  #图标 
     # #加载本地图片X
